@@ -1,0 +1,12 @@
+node_modules
+dist/
+coverage/
+.module-cache
+*.log*
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+yarn.lock
+package-lock.json
