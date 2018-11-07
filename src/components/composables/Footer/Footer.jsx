@@ -1,6 +1,6 @@
 
 import React from 'react';
-
+import { FooterWrapper } from './Footer.styled'
 
 const displayName = 'Footer';
 
@@ -13,11 +13,11 @@ const defaultProps = {
 
 function Footer() {
   return (
-    <header>
+    <FooterWrapper>
       <div>
         This is Footer
       </div>
-    </header>
+    </FooterWrapper>
   );
 }
 

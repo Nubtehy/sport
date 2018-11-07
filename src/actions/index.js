@@ -1,7 +1,7 @@
-import addProduct from './addProduct';
+import addToCart from './addToCart';
 import removeProduct from './removeProduct';
 import fetchProducts from './fetchProducts';
 
 export {
-  addProduct, removeProduct, fetchProducts,
+  addToCart, removeProduct, fetchProducts,
 };

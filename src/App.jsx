@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import store from 'store';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import { Cart, Category, Confirmation } from 'pages/index';
+import { Cart, Category, Confirmation } from 'components/pages';
 
 const displayName = 'App';
 
@@ -12,7 +12,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  title: 'Hello, React by default!',
+  title: 'Sports store',
 };
 
 export default function App({ title }) {

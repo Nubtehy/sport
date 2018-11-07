@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from 'composables/Header';
+import Header from 'components/composables/Header';
 
-import Footer from 'composables/Footer';
+import Footer from 'components/composables/Footer';
 
 
 const displayName = 'Master';
 
 const propTypes = {
   children: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 const defaultProps = {
@@ -17,11 +18,13 @@ const defaultProps = {
 };
 
 function Master({
-  children
+  children,
+  title,
 }) {
   return (
     <div>
-      <Header />
+      <Header title={title}
+      />
       <main>
         {children}
       </main>

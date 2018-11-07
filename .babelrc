@@ -2,5 +2,8 @@
   "presets": [
     "airbnb",
     "env"
+  ],
+  "plugins": [
+    "babel-plugin-styled-components"
   ]
 }

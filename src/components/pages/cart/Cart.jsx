@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Master } from 'composables';
+import { Master } from 'components/composables';
 
 const displayName = 'Cart';
 

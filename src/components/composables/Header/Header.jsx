@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { HeaderWrapper, HeaderTitle } from './Header.styled';
 
 
 const displayName = 'Header';
@@ -11,13 +12,13 @@ const defaultProps = {
 
 };
 
-function Header() {
+function Header({title}) {
   return (
-    <header>
-      <div>
-        This is header
-      </div>
-    </header>
+    <HeaderWrapper>
+      <HeaderTitle>
+        Sports store {title}
+      </HeaderTitle>
+    </HeaderWrapper>
   );
 }
 
