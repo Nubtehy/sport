@@ -22,11 +22,11 @@ export default function App({ title }) {
         <Switch>
           {/* these are good */}
           <Route exact path="/" component={Category} />
-          {/* <Route
+          <Route
             path="/cart"
-            render={props => <Cart {...props} extra={title} />}
-          /> */}
-          {/* do not do this */}
+            render={props => <Cart {...props}/>}
+          />
+
           {/* <Route
             path="/confirmation"
             component={props => <Confirmation {...props} extra={title} />}

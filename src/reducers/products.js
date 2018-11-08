@@ -9,12 +9,6 @@ export const initialProductsState = List([Map({ id: 1, name: 'Ball', image: 'ima
 
 const products = handleActions(
   {
-    [addToCart]: (state, action) => {
-      id -= 1;
-
-      return state.push(Map({ ...action.payload }));
-    },
-    [removeProduct]: (state, { payload }) => state.remove(state.findIndex(p => p.get('id') === payload)),
     [`${fetchProducts}_${FULFILLED}`]: (state, { payload: { data } }) => fromJS(data),
   },
   initialProductsState,

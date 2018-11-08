@@ -1,28 +1,20 @@
-const initialState = {
-  addedIds: [],
-  quantityById: {}
-}
+import { Map, List } from 'immutable';
+import { handleActions } from 'redux-actions';
+import { addToCart, removeProduct, fetchProducts } from 'actions';
 
-const addedIds = (state = initialState.addedIds, action) => {
-  switch (action.type) {
-    case ADD_TO_CART:
-      if (state.indexOf(action.productId) !== -1) {
-        return state
-      }
-      return [ ...state, action.productId ]
-    default:
-      return state
-  }
-}
+export const initialCartState =  List([Map({ id: 1})]);;
 
-const quantityById = (state = initialState.quantityById, action) => {
-  switch (action.type) {
-    case ADD_TO_CART:
-      const { productId } = action
-      return { ...state,
-        [productId]: (state[productId] || 0) + 1
-      }
-    default:
-      return state
-  }
-}
+
+const cart = handleActions(
+  {
+    [addToCart]: (state, action) => {
+        console.log(state);
+      return state.concat([action.payload])
+
+    },
+  },
+  initialCartState,
+);
+
+
+export default cart;

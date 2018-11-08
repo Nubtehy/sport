@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { HeaderWrapper, HeaderTitle } from './Header.styled';
 
 
@@ -17,6 +18,9 @@ function Header({title}) {
     <HeaderWrapper>
       <HeaderTitle>
         Sports store {title}
+        {
+          (title == 'Products') && <Link to='/cart'> Cart</Link>
+        }
       </HeaderTitle>
     </HeaderWrapper>
   );

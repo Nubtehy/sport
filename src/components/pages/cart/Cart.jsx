@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Master } from 'components/composables';
 
-const displayName = 'Cart';
+import { CartItem } from 'components/widgets';
+import { ProductWrapper } from './Cart.styled';
+
+const displayName = 'Category';
 
 const propTypes = {
 
@@ -12,10 +15,18 @@ const defaultProps = {
 
 };
 
-function Cart() {
+function Cart({
+  myProducts,
+}) {
+  console.log(myProducts);
   return (
-    <Master>
-      <h1>Products</h1>
+    <Master title="Cart">
+      <ProductWrapper>
+
+        {myProducts.map(product => (
+          <CartItem key={product.id} {...product} />
+        ))}
+      </ProductWrapper>
     </Master>
   );
 }

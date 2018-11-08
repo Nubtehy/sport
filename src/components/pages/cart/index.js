@@ -1,4 +1,4 @@
 
-import CatrtContainer from './CatrtContainer';
+import CartContainer from './CartContainer';
 
-export default CatrtContainer;
+export default CartContainer;
