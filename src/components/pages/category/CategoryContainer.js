@@ -3,9 +3,7 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {
-  addToCart, removeProduct, fetchProducts,
-} from 'actions';
+import { addToCart, removeProduct, fetchProducts } from 'actions';
 import { getProducts } from 'selectors';
 
 import Category from './Category';
@@ -33,14 +31,13 @@ export const enhance = compose(
     handleFetchProducts: ({ dispatchFetchProducts }) => () => {
       dispatchFetchProducts();
     },
-    handleAddToCart: ({ dispatchAddToCart}) => (id) => {
+    handleAddToCart: ({ dispatchAddToCart }) => (id) => {
       dispatchAddToCart(id);
     },
-    handleRemoveProduct: ({ dispatchRemoveProduct }) => (id) => {
-      dispatchRemoveProduct(id);
-    },
-    handleChangeFilter: ({ dispatchChangeFilter }) => ({ currentTarget: { value } }) => {
-      dispatchChangeFilter(value);
+  }),
+  lifecycle({
+    componentDidMount() {
+      this.props.handleFetchProducts();
     },
   }),
   lifecycle({

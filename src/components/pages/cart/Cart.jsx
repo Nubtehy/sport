@@ -1,32 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Master } from 'components/composables';
-
+import { Link } from 'react-router-dom';
 import { CartItem } from 'components/widgets';
-import { ProductWrapper } from './Cart.styled';
+import { CartTable, CarttWrapper } from './Cart.styled';
 
 const displayName = 'Category';
 
-const propTypes = {
+const propTypes = {};
 
-};
+const defaultProps = {};
 
-const defaultProps = {
-
-};
-
-function Cart({
-  myProducts,
-}) {
+function Cart({ myProducts, total }) {
   console.log(myProducts);
   return (
     <Master title="Cart">
-      <ProductWrapper>
+      {total ? (
+        <CartTable>
+          <thead>
+            <th>Product name</th>
 
-        {myProducts.map(product => (
-          <CartItem key={product.id} {...product} />
-        ))}
-      </ProductWrapper>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>total</th>
+          </thead>
+          {myProducts.map(product => (
+            <CartItem key={product.id} {...product} />
+          ))}
+        </CartTable>
+      ) : (
+        'Cart is empty'
+      )}
+      {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
     </Master>
   );
 }

@@ -1,11 +1,16 @@
-
 import { createStore, compose, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux-immutable';
 import { Map } from 'immutable';
 import promiseMiddleware from 'redux-promise-middleware';
 import {
-  cart, initialCartState,
-  products, initialProductsState, userInfo, initialUserInfoState,
+  quantity,
+  initialQuantityState,
+  cart,
+  initialCartState,
+  products,
+  initialProductsState,
+  userInfo,
+  initialUserInfoState,
 } from 'reducers';
 import thunkMiddleware from 'redux-thunk';
 
@@ -18,13 +23,15 @@ export const initialStoreState = Map({
   userInfo: initialUserInfoState,
   products: initialProductsState,
   cart: initialCartState,
+  quantity: initialQuantityState,
 });
 
 const store = createStore(
   combineReducers({
     userInfo,
     products,
-    cart
+    cart,
+    quantity,
   }),
   initialStoreState,
   enhancer,

@@ -5,20 +5,18 @@ import { connect } from 'react-redux';
 import { addToCart, removeProduct, fetchProducts } from 'actions';
 import { getCartProducts, getTotal } from 'selectors';
 
-import Cart from './Cart';
+import Master from './Master';
 
 export const enhance = compose(
   setDisplayName('AboutContainer'),
   connect(state => ({
-    myProducts: getCartProducts(state),
-    total: getTotal(state),
+    count: getCartProducts(state).length,
   })),
   withState('name', 'setName', ''),
   mapProps(props => ({
     ...props,
-    myProducts: props.myProducts,
-    total: props.total,
+    count,
   })),
 );
 
-export default enhance(Cart);
+export default enhance(Master);
