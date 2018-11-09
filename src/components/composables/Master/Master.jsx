@@ -5,6 +5,7 @@ import Header from 'components/composables/Header';
 
 import Footer from 'components/composables/Footer';
 
+import { CartContainer } from './Master.styled';
 
 const displayName = 'Master';
 
@@ -17,18 +18,14 @@ const defaultProps = {
 
 };
 
-function Master({
-  children,
-  title,
-}) {
+function Master({ children, count, title }) {
   return (
     <div>
-      <Header title={title}
-      />
-      <main>
-        {children}
-      </main>
-      <Footer />
+      <CartContainer>
+        <Header title={title} count={count} />
+        <main>{children}</main>
+        <Footer />
+      </CartContainer>
     </div>
   );
 }
