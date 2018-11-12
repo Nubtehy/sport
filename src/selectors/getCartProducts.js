@@ -6,9 +6,8 @@ const getCartProducts = createSelector(
   state => state.get('quantity'),
   (cart, products, quantity) => {
     const cartItems = products.toJS().filter(product => cart.toJS().indexOf(product.id) !== -1);
-    console.log(quantity.toJS(),'quantity')
+    
     cartItems.map(item => (item.quantity = quantity.toJS()[item.id]));
-    console.log(cartItems.map(item => (item.quantity = quantity.toJS()[item.id])));
     return cartItems;
   },
 );

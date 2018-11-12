@@ -1,4 +1,4 @@
 
-import ConfiramtionContainer from './ConfiramtionContainer';
+import ConfirmationContainer from './ConfirmationContainer';
 
-export default ConfiramtionContainer;
+export default ConfirmationContainer;

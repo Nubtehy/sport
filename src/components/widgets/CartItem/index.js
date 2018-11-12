@@ -1,3 +1,3 @@
-import CartItem from './CartItem';
+import CartItemContainer from './CartItemContainer';
 
-export default CartItem;
+export default CartItemContainer;

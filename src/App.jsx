@@ -27,10 +27,10 @@ export default function App({ title }) {
             render={props => <Cart {...props}/>}
           />
 
-          {/* <Route
+          <Route
             path="/confirmation"
             component={props => <Confirmation {...props} extra={title} />}
-          /> */}
+          />
         </Switch>
       </BrowserRouter>
     </Provider>

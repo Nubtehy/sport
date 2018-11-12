@@ -11,7 +11,6 @@ export const enhance = compose(
     AddToCart: PropTypes.func.isRequired,
   }),
   withHandlers({
-    handleRemove: ({ id, onRemove }) => () => onRemove(id),
     handleAddToCart: ({ id, AddToCart }) => () => AddToCart(id),
   }),
 );

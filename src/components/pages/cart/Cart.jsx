@@ -10,19 +10,21 @@ const displayName = 'Category';
 const propTypes = {};
 
 const defaultProps = {};
+import { Button, Input } from 'components/controls';
+function Cart({ myProducts, total, handlePlusItem, handleMinusItem, handleSubmit, name, address, handleSetUser }) {
 
-function Cart({ myProducts, total, handlePlusItem, handleMinusItem }) {
-  console.log(myProducts);
   return (
     <Master title="Cart">
       {total ? (
         <CartTable>
           <thead>
-            <th>Product name</th>
+          <tr>
 
+            <th>Product name</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>total</th>
+          </tr>
           </thead>
           <tbody>
             {myProducts.map(product => (
@@ -34,6 +36,14 @@ function Cart({ myProducts, total, handlePlusItem, handleMinusItem }) {
         'Cart is empty'
       )}
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
+      {
+        total ?
+        <div>
+        <Input name="name" placeholder="Type your name" value={name} onChange={handleSetUser}/>
+        <Input name="address" placeholder="Type your address" value={address}  onChange={handleSetUser}/>
+        <Button onClick={handleSubmit}>Submit</Button>
+        </div>: ''
+      }
     </Master>
   );
 }

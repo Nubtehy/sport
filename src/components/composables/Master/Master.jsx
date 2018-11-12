@@ -5,7 +5,7 @@ import Header from 'components/composables/Header';
 
 import Footer from 'components/composables/Footer';
 
-import { CartContainer } from './Master.styled';
+import { CartContainer, CartMainContainer } from './Master.styled';
 
 const displayName = 'Master';
 
@@ -22,7 +22,7 @@ function Master({ children, total, title }) {
   return (
       <CartContainer>
         <Header title={title} total={total} />
-        <main>{children}</main>
+        <CartMainContainer>{children}</CartMainContainer>
         <Footer />
       </CartContainer>
   );

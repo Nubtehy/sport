@@ -15,15 +15,15 @@ function CartItem({
   quantity,
   id,
   price,
-  plus,
-  minus,
+  handlePlusItem,
+  handleMinusItem,
 }) {
   return (
     id && (
       <CartItemRow data-name={id} key={id}>
         <CartItemCol>{name}</CartItemCol>
         <CartItemCol>{price}</CartItemCol>
-        <CartItemCol><Button onClick={minus}>-</Button>{quantity}<Button onClick={plus}>+</Button></CartItemCol>
+        <CartItemCol><Button onClick={handleMinusItem}>-</Button>{quantity}<Button onClick={handlePlusItem}>+</Button></CartItemCol>
         <CartItemCol>{price * quantity}</CartItemCol>
       </CartItemRow>
     )
