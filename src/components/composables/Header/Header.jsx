@@ -13,13 +13,13 @@ const defaultProps = {
 
 };
 
-function Header({title}) {
+function Header({title, total}) {
   return (
     <HeaderWrapper>
       <HeaderTitle>
         Sports store {title}
         {
-          (title == 'Products') && <Link to='/cart'> Cart</Link>
+          (title == 'Products') && <Link to='/cart'> Cart ({total})</Link>
         }
       </HeaderTitle>
     </HeaderWrapper>

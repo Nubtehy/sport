@@ -3,16 +3,14 @@ import {
 } from 'recompose';
 import PropTypes from 'prop-types';
 import CartItem from './CartItem';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 
 export const enhance = compose(
   setDisplayName('ProductContainer'),
   setPropTypes({
     id: PropTypes.number.isRequired,
-    AddToCart: PropTypes.func.isRequired,
-  }),
-  withHandlers({
-    handleRemove: ({ id, onRemove }) => () => onRemove(id),
-    handleAddToCart: ({ id, AddToCart }) => () => AddToCart(id),
   }),
 );
 

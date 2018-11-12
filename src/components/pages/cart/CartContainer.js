@@ -1,19 +1,38 @@
 import {
-  compose, withState, withHandlers, setDisplayName, mapProps,
+  compose, withState, withHandlers, setDisplayName, mapProps, setPropTypes,
 } from 'recompose';
 import { connect } from 'react-redux';
-import { addToCart, removeProduct, fetchProducts } from 'actions';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { plusItem, minusItem } from 'actions';
 import { getCartProducts, getTotal } from 'selectors';
 
 import Cart from './Cart';
 
 export const enhance = compose(
   setDisplayName('AboutContainer'),
-  connect(state => ({
-    myProducts: getCartProducts(state),
-    total: getTotal(state),
-  })),
-  withState('name', 'setName', ''),
+  setPropTypes({
+    id: PropTypes.number.isRequired,
+    plusItem: PropTypes.func.isRequired,
+    minusItem: PropTypes.func.isRequired
+  }),
+  connect(
+    state => ({
+      myProducts: getCartProducts(state),
+      total: getTotal(state),
+    }),
+    dispatch => bindActionCreators(
+      {
+        dispatchPlusItem: plusItem,
+        dispatchMinusItem: minusItem,
+      },
+      dispatch,
+    ),
+  ),
+  withHandlers({
+    handlePlusItem: ({ dispatchPlusItem }) => (id) => dispatchPlusItem(id),
+    handleMinusItem : ({ dispatchMinusItem }) => (id) => dispatchMinusItem(id),
+  }),
   mapProps(props => ({
     ...props,
     myProducts: props.myProducts,

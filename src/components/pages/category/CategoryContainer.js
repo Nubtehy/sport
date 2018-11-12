@@ -4,20 +4,21 @@ import {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { addToCart, removeProduct, fetchProducts } from 'actions';
-import { getProducts } from 'selectors';
+import { getProducts, getTotalCount } from 'selectors';
 
 import Category from './Category';
+import { getCartProducts } from '../../../selectors';
 
 export const enhance = compose(
-  setDisplayName('AboutContainer'),
+  setDisplayName('CategoryContainer'),
   connect(
     state => ({
       myProducts: getProducts(state),
+      total: getCartProducts(state),
     }),
     dispatch => bindActionCreators(
       {
         dispatchAddToCart: addToCart,
-        dispatchRemoveProduct: removeProduct,
         dispatchFetchProducts: fetchProducts,
       },
       dispatch,
@@ -25,9 +26,6 @@ export const enhance = compose(
   ),
   withState('name', 'setName', ''),
   withHandlers({
-    changeName: ({ setName }) => (event) => {
-      setName(event.currentTarget.value);
-    },
     handleFetchProducts: ({ dispatchFetchProducts }) => () => {
       dispatchFetchProducts();
     },
@@ -40,14 +38,10 @@ export const enhance = compose(
       this.props.handleFetchProducts();
     },
   }),
-  lifecycle({
-    componentDidMount(){
-      this.props.handleFetchProducts()
-    }
-  }),
   mapProps(props => ({
     ...props,
     myProducts: props.myProducts.toJS(),
+    total: props.total,
   })),
 );
 

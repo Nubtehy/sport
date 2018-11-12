@@ -11,7 +11,7 @@ const propTypes = {};
 
 const defaultProps = {};
 
-function Cart({ myProducts, total }) {
+function Cart({ myProducts, total, handlePlusItem, handleMinusItem }) {
   console.log(myProducts);
   return (
     <Master title="Cart">
@@ -24,9 +24,11 @@ function Cart({ myProducts, total }) {
             <th>Quantity</th>
             <th>total</th>
           </thead>
-          {myProducts.map(product => (
-            <CartItem key={product.id} {...product} />
-          ))}
+          <tbody>
+            {myProducts.map(product => (
+              <CartItem key={product.id} {...product} plus={handlePlusItem} minus={handleMinusItem}/>
+            ))}
+          </tbody>
         </CartTable>
       ) : (
         'Cart is empty'

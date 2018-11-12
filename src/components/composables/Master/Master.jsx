@@ -10,7 +10,7 @@ import { CartContainer } from './Master.styled';
 const displayName = 'Master';
 
 const propTypes = {
-  children: PropTypes.string.isRequired,
+
   title: PropTypes.string.isRequired
 };
 
@@ -18,15 +18,13 @@ const defaultProps = {
 
 };
 
-function Master({ children, count, title }) {
+function Master({ children, total, title }) {
   return (
-    <div>
       <CartContainer>
-        <Header title={title} count={count} />
+        <Header title={title} total={total} />
         <main>{children}</main>
         <Footer />
       </CartContainer>
-    </div>
   );
 }
 

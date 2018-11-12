@@ -10,14 +10,20 @@ const propTypes = {
 };
 
 function CartItem({
-  name, image, quantity, id, price,
+  name,
+  image,
+  quantity,
+  id,
+  price,
+  plus,
+  minus,
 }) {
   return (
     id && (
       <CartItemRow data-name={id} key={id}>
         <CartItemCol>{name}</CartItemCol>
         <CartItemCol>{price}</CartItemCol>
-        <CartItemCol>{quantity}</CartItemCol>
+        <CartItemCol><Button onClick={minus}>-</Button>{quantity}<Button onClick={plus}>+</Button></CartItemCol>
         <CartItemCol>{price * quantity}</CartItemCol>
       </CartItemRow>
     )

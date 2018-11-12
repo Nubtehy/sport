@@ -18,9 +18,12 @@ const defaultProps = {
 function Category({
   myProducts,
   handleAddToCart,
+  total
 }) {
+  const totalItems = total ? total.length : 0;
+
   return (
-    <Master title="Products">
+    <Master title="Products" total={ totalItems }>
       <ProductWrapper>
 
         {myProducts.map(product => (
