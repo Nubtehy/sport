@@ -17,8 +17,8 @@ const defaultProps = {
 
 function Confiramtion({
   myProducts,
-  handleAddToCart,
-  total
+  total,
+  user
 }) {
   const totalItems = total ? total.length : 0;
 
@@ -27,7 +27,7 @@ function Confiramtion({
       <ProductWrapper>
 
         {myProducts.map(product => (
-          <Product key={product.id} {...product} AddToCart={handleAddToCart}/>
+          <Product key={product.id} {...product} controls="false"/>
         ))}
       </ProductWrapper>
     </Master>

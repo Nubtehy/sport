@@ -11,7 +11,17 @@ const propTypes = {};
 
 const defaultProps = {};
 import { Button, Input } from 'components/controls';
-function Cart({ myProducts, total, handlePlusItem, handleMinusItem, handleSubmit, name, address, handleSetUser }) {
+function Cart({
+  myProducts,
+  total,
+  handlePlusItem,
+  handleMinusItem,
+  handleSubmit,
+  name,
+  address,
+  handleSetUser,
+  user
+}) {
 
   return (
     <Master title="Cart">
@@ -39,8 +49,8 @@ function Cart({ myProducts, total, handlePlusItem, handleMinusItem, handleSubmit
       {
         total ?
         <div>
-        <Input name="name" placeholder="Type your name" value={name} onChange={handleSetUser}/>
-        <Input name="address" placeholder="Type your address" value={address}  onChange={handleSetUser}/>
+        <Input name="name" placeholder="Type your name" value={ user.name ? user.name : '' } onChange={handleSetUser}/>
+        <Input name="address" placeholder="Type your address" value={ user.address ? user.address : '' }  onChange={handleSetUser}/>
         <Button onClick={handleSubmit}>Submit</Button>
         </div>: ''
       }

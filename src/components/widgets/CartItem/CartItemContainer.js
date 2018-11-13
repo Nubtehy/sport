@@ -11,14 +11,11 @@ export const enhance = compose(
   setDisplayName('ProductContainer'),
   setPropTypes({
     id: PropTypes.number.isRequired,
-    minus: PropTypes.func.isRequired,
-    plus: PropTypes.func.isRequired
+    minus: PropTypes.func,
+    plus: PropTypes.func
   }),
   withHandlers({
-    handleMinusItem: ({ id, minus }) => () =>{
-
-      minus(id)
-    },
+    handleMinusItem: ({ id, minus }) => () => minus(id),
     handlePlusItem: ({ id, plus }) => () => plus(id),
   }),
 );
