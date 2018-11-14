@@ -3,8 +3,6 @@ import {
 } from 'recompose';
 import PropTypes from 'prop-types';
 import CartItem from './CartItem';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 
 
 export const enhance = compose(
@@ -12,7 +10,8 @@ export const enhance = compose(
   setPropTypes({
     id: PropTypes.number.isRequired,
     minus: PropTypes.func,
-    plus: PropTypes.func
+    plus: PropTypes.func,
+    control: PropTypes.bool,
   }),
   withHandlers({
     handleMinusItem: ({ id, minus }) => () => minus(id),

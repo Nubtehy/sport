@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Master } from 'components/composables';
 import { Link } from 'react-router-dom';
 import { CartItem } from 'components/widgets';
-import { CartTable, CarttWrapper } from './Cart.styled';
+import { CartTable } from './Cart.styled';
 
 const displayName = 'Category';
 
@@ -17,8 +17,6 @@ function Cart({
   handlePlusItem,
   handleMinusItem,
   handleSubmit,
-  name,
-  address,
   handleSetUser,
   user
 }) {
@@ -29,7 +27,6 @@ function Cart({
         <CartTable>
           <thead>
           <tr>
-
             <th>Product name</th>
             <th>Price</th>
             <th>Quantity</th>
@@ -38,7 +35,7 @@ function Cart({
           </thead>
           <tbody>
             {myProducts.map(product => (
-              <CartItem key={product.id} {...product} plus={handlePlusItem} minus={handleMinusItem}/>
+              <CartItem key={product.id} {...product} plus={handlePlusItem} minus={handleMinusItem} controls="true" />
             ))}
           </tbody>
         </CartTable>

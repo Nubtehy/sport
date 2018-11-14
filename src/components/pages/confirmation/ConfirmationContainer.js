@@ -3,18 +3,18 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getProducts, getTotalCount } from 'selectors';
+import { getProducts, getTotal } from 'selectors';
 
 import Confirmation from './Confirmation';
-import { getCartProducts } from '../../../selectors';
+import { getCartProducts, getUser } from '../../../selectors';
 
 export const enhance = compose(
   setDisplayName('ConfirmationContainer'),
   connect(
     state => ({
       myProducts: getCartProducts(state),
-      User: getCartProducts(state),
-      total: getCartProducts(state),
+      user: getUser(state),
+      total: getTotal(state),
     })
   ),
   mapProps(props => ({

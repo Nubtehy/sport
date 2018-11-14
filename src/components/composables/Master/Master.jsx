@@ -10,8 +10,9 @@ import { CartContainer, CartMainContainer } from './Master.styled';
 const displayName = 'Master';
 
 const propTypes = {
-
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  total: PropTypes.number,
+  children: PropTypes.element
 };
 
 const defaultProps = {

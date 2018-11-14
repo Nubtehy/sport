@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Master } from 'components/composables';
-
-import { Product } from 'components/widgets';
-import { ProductWrapper } from './Confirmation.styled';
+import { Link } from 'react-router-dom';
+import { CartItem } from 'components/widgets';
+import { CartTable } from '../cart/Cart.styled';
 
 const displayName = 'Confiramtion';
 
@@ -23,13 +23,29 @@ function Confiramtion({
   const totalItems = total ? total.length : 0;
 
   return (
-    <Master title="Products" total={ totalItems }>
-      <ProductWrapper>
-
-        {myProducts.map(product => (
-          <Product key={product.id} {...product} controls="false"/>
-        ))}
-      </ProductWrapper>
+    <Master title="Confirmation">
+      {total ? (
+        <CartTable>
+          <thead>
+          <tr>
+            <th>Product name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>total</th>
+          </tr>
+          </thead>
+          <tbody>
+          {myProducts.map(product => (
+            <CartItem key={product.id} {...product}  controls={false} />
+          ))}
+          </tbody>
+        </CartTable>
+      ) : (
+        'Cart is empty'
+      )}
+      {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
+      <div>Name: {user.name}</div>
+      <div>Address: {user.address}</div>
     </Master>
   );
 }

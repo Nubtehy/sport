@@ -22,11 +22,14 @@ function CartItem({
   return (
     id && (
       <CartItemRow data-name={id} key={id}>
+
+        <CartItemCol><img src={image}/></CartItemCol>
         <CartItemCol>{name}</CartItemCol>
         <CartItemCol>{price}</CartItemCol>
         <CartItemCol>
         {
-          controls &&(<Button onClick={handleMinusItem}>-</Button>quantity<Button onClick={handlePlusItem}>+</Button>)
+          controls ?<div><Button onClick={handleMinusItem}>-</Button>{quantity}<Button onClick={handlePlusItem}>+</Button></div>
+          : quantity
         }
         </CartItemCol>
         <CartItemCol>{price * quantity}</CartItemCol>
