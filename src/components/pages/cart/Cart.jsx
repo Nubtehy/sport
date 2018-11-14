@@ -27,6 +27,7 @@ function Cart({
         <CartTable>
           <thead>
           <tr>
+            <th>Image</th>
             <th>Product name</th>
             <th>Price</th>
             <th>Quantity</th>
@@ -34,6 +35,7 @@ function Cart({
           </tr>
           </thead>
           <tbody>
+          
             {myProducts.map(product => (
               <CartItem key={product.id} {...product} plus={handlePlusItem} minus={handleMinusItem} controls="true" />
             ))}

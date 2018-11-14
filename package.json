@@ -44,7 +44,10 @@
   "devDependencies": {
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
-    "babel-plugin-transform-export-extensions": "^6.22.0", "babel-plugin-transform-object-assign": "^6.22.0", "babel-plugin-transform-runtime": "6.23.0", "babel-preset-airbnb": "2.6.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-airbnb": "2.6.0",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "0.1.19",
     "directory-named-webpack-plugin": "4.0.0",

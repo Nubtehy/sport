@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'components/controls';
-import { CartItemRow, CartItemCol } from './CartItem.styled';
+import { CartItemRow, CartItemCol , QuantityContainer } from './CartItem.styled';
 
 const displayName = 'CartItem';
 
 const propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 function CartItem({
@@ -28,7 +28,7 @@ function CartItem({
         <CartItemCol>{price}</CartItemCol>
         <CartItemCol>
         {
-          controls ?<div><Button onClick={handleMinusItem}>-</Button>{quantity}<Button onClick={handlePlusItem}>+</Button></div>
+          controls ?<div><Button onClick={handleMinusItem}>-</Button><QuantityContainer>{quantity}</QuantityContainer><Button onClick={handlePlusItem}>+</Button></div>
           : quantity
         }
         </CartItemCol>

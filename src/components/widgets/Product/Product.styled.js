@@ -6,6 +6,8 @@ export const ProductWrapper = styled.div`
 `;
 
 export const ProductContainer = styled.div`
+  flex: 0 0 auto;
+  width: 250px;
   img {
     width: 100%;
   }

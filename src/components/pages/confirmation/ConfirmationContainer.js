@@ -19,6 +19,7 @@ export const enhance = compose(
   ),
   mapProps(props => ({
     ...props,
+    myProducts: props.myProducts.toJS(),
     user: props.user,
   })),
 );

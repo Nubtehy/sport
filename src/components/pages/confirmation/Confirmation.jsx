@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Master } from 'components/composables';
 import { Link } from 'react-router-dom';
+
+import { Button } from '../../controls';
 import { CartItem } from 'components/widgets';
 import { CartTable } from '../cart/Cart.styled';
 
@@ -28,6 +30,7 @@ function Confiramtion({
         <CartTable>
           <thead>
           <tr>
+            <th>Image</th>
             <th>Product name</th>
             <th>Price</th>
             <th>Quantity</th>
@@ -46,6 +49,7 @@ function Confiramtion({
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
       <div>Name: {user.name}</div>
       <div>Address: {user.address}</div>
+      <Button>Confirm</Button>
     </Master>
   );
 }

@@ -5,16 +5,8 @@ const getCartProducts = createSelector(
   state => state.get('products'),
   state => state.get('quantity'),
   (cart, products, quantity) => {
-    const cartItems = products.toJS().filter(product => cart.toJS().indexOf(product.id) !== -1);
-    
-    cartItems.map(item => (item.quantity = quantity.toJS()[item.id]));
+    const cartItems = products.filter(product => cart.indexOf(product.get('id')) !== -1);
     return cartItems;
   },
 );
 export default getCartProducts;
-
-export const getTotal = createSelector(getCartProducts, getCartProducts =>
-  getCartProducts.reduce((total, item) => total + item.price * item.quantity, 0));
-
-export const getTotalCount = createSelector(getCartProducts, getCartProducts => getCartProducts.lenght?getCartProducts.lenght:0);
-

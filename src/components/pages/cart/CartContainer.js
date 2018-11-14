@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
-import { plusItem, minusItem, addUser} from 'actions';
+import { plusItem, minusItem, addUser } from 'actions';
 import { getCartProducts, getTotal, getUser } from 'selectors';
 
 import Cart from './Cart';
+import getQuantity from '../../../selectors/getQuantity';
 
 export const enhance = compose(
   withRouter,
@@ -17,7 +18,8 @@ export const enhance = compose(
     state => ({
       myProducts: getCartProducts(state),
       total: getTotal(state),
-      user: getUser(state)
+      quantity: getQuantity(state),
+      user: getUser(state),
     }),
     dispatch => bindActionCreators(
       {
@@ -31,23 +33,23 @@ export const enhance = compose(
   ),
   withState('user', 'setUser', ({ user }) => user),
   withHandlers({
-    handlePlusItem: ({ id, dispatchPlusItem }) => (id) => dispatchPlusItem(id),
-    handleMinusItem: ({ id, dispatchMinusItem }) => (id) => dispatchMinusItem(id),
+    handlePlusItem: ({ id, dispatchPlusItem }) => id => dispatchPlusItem(id),
+    handleMinusItem: ({ id, dispatchMinusItem }) => id => dispatchMinusItem(id),
     handleSetUser: ({ setUser, user }) => (e) => {
-        const { name, value } = e.target;
-        setUser({...user, [name]: value})
+      const { name, value } = e.target;
+      setUser({ ...user, [name]: value });
     },
-    handleSubmit: ({user,dispatchAddUser, history})=>()=> {
+    handleSubmit: ({ user, dispatchAddUser, history }) => () => {
       history.push('/confirmation');
-      return dispatchAddUser({...user});
+      return dispatchAddUser({ ...user });
     },
   }),
   mapProps(props => ({
     ...props,
-    myProducts: props.myProducts,
+    myProducts: props.myProducts.toJS(),
     total: props.total,
     history: props.history,
-    user: props.user
+    user: props.user,
   })),
 );
 

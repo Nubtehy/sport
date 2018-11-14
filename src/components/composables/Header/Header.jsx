@@ -18,10 +18,11 @@ function Header({title, total}) {
     <HeaderWrapper>
       <HeaderTitle>
         Sports store {title}
-        {
-          (title == 'Products') && <Link to='/cart'> Cart ({total})</Link>
-        }
+
       </HeaderTitle>
+      {
+        (title == 'Products') && <Link to='/cart'> Cart ({total})</Link>
+      }
     </HeaderWrapper>
   );
 }

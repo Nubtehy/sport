@@ -20,6 +20,8 @@ function Category({
   handleAddToCart,
   total
 }) {
+
+  console.log(total)
   const totalItems = total ? total.length : 0;
 
   return (

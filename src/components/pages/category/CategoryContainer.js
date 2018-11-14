@@ -41,7 +41,7 @@ export const enhance = compose(
   mapProps(props => ({
     ...props,
     myProducts: props.myProducts.toJS(),
-    total: props.total,
+    total: props.total.toJS(),
   })),
 );
 
