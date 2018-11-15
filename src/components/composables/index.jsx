@@ -1,4 +1,4 @@
 
 import Master from './Master/Master';
 
-export { Master };
+export default Master;

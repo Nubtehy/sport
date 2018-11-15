@@ -1,4 +1,4 @@
 
-import MasterContainer from './MasterContainer';
+import Master from './Master';
 
-export default MasterContainer;
+export default Master;

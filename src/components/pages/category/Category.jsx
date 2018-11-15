@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Master } from 'components/composables';
+import Master from 'components/composables';
 
 import { Product } from 'components/widgets';
-import { ProductWrapper } from './Category.styled';
+import ProductWrapper from './Category.styled';
 
 const displayName = 'Category';
 
 const propTypes = {
-
+  myProducts: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
+  total: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 
 const defaultProps = {
@@ -18,18 +20,16 @@ const defaultProps = {
 function Category({
   myProducts,
   handleAddToCart,
-  total
+  total,
 }) {
-
-  console.log(total)
   const totalItems = total ? total.length : 0;
 
   return (
-    <Master title="Products" total={ totalItems }>
+    <Master title="Products" total={totalItems}>
       <ProductWrapper>
 
         {myProducts.map(product => (
-          <Product key={product.id} {...product} AddToCart={handleAddToCart}/>
+          <Product key={product.id} {...product} AddToCart={handleAddToCart} />
         ))}
       </ProductWrapper>
     </Master>

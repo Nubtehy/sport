@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'components/controls';
-import { CartItemRow, CartItemCol , QuantityContainer } from './CartItem.styled';
+import { CartItemRow, CartItemCol, QuantityContainer } from './CartItem.styled';
 
 const displayName = 'CartItem';
 
@@ -17,22 +17,29 @@ function CartItem({
   price,
   handlePlusItem,
   handleMinusItem,
-  controls
+  controls,
 }) {
   return (
     id && (
       <CartItemRow data-name={id} key={id}>
 
-        <CartItemCol><img src={image}/></CartItemCol>
+        <CartItemCol><img src={image} alt="" /></CartItemCol>
         <CartItemCol>{name}</CartItemCol>
         <CartItemCol>{price}</CartItemCol>
         <CartItemCol>
-        {
-          controls ?<div><Button onClick={handleMinusItem}>-</Button><QuantityContainer>{quantity}</QuantityContainer><Button onClick={handlePlusItem}>+</Button></div>
-          : quantity
-        }
+          {
+            controls ? (
+              <div>
+                <Button onClick={handleMinusItem}>-</Button>
+                <QuantityContainer>{quantity}</QuantityContainer>
+                <Button onClick={handlePlusItem}>+</Button>
+              </div>
+            ) : quantity
+          }
         </CartItemCol>
-        <CartItemCol>{price * quantity}</CartItemCol>
+        <CartItemCol>
+          {price * quantity}
+        </CartItemCol>
       </CartItemRow>
     )
   );

@@ -1,16 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Master } from 'components/composables';
+import Master from 'components/composables';
 import { Link } from 'react-router-dom';
 import { CartItem } from 'components/widgets';
+import { Button, Input } from 'components/controls';
 import { CartTable } from './Cart.styled';
+
 
 const displayName = 'Category';
 
-const propTypes = {};
+const propTypes = {
+  myProducts: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  total: PropTypes.number.isRequired,
+  handlePlusItem: PropTypes.func.isRequired,
+  handleMinusItem: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleSetUser: PropTypes.func.isRequired,
+  user: PropTypes.shape({ name: PropTypes.string, address: PropTypes.string }),
+  quantity: PropTypes.objectOf(PropTypes.number),
 
-const defaultProps = {};
-import { Button, Input } from 'components/controls';
+
+};
+
+const defaultProps = {
+  user: {},
+  quantity: [{}],
+};
+
 function Cart({
   myProducts,
   total,
@@ -18,27 +34,35 @@ function Cart({
   handleMinusItem,
   handleSubmit,
   handleSetUser,
-  user
+  user,
+  quantity,
 }) {
-
   return (
     <Master title="Cart">
       {total ? (
         <CartTable>
           <thead>
-          <tr>
-            <th>Image</th>
-            <th>Product name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>total</th>
-          </tr>
+            <tr>
+              <th>Image</th>
+              <th>Product name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>total</th>
+            </tr>
           </thead>
           <tbody>
-          
-            {myProducts.map(product => (
-              <CartItem key={product.id} {...product} plus={handlePlusItem} minus={handleMinusItem} controls="true" />
-            ))}
+            {
+              myProducts.map(product => (
+                <CartItem
+                  key={product.id}
+                  {...product}
+                  plus={handlePlusItem}
+                  minus={handleMinusItem}
+                  controls="true"
+                  quantity={quantity[product.id]}
+                />
+              ))
+            }
           </tbody>
         </CartTable>
       ) : (
@@ -46,12 +70,23 @@ function Cart({
       )}
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
       {
-        total ?
-        <div>
-        <Input name="name" placeholder="Type your name" value={ user.name ? user.name : '' } onChange={handleSetUser}/>
-        <Input name="address" placeholder="Type your address" value={ user.address ? user.address : '' }  onChange={handleSetUser}/>
-        <Button onClick={handleSubmit}>Submit</Button>
-        </div>: ''
+        total ? (
+          <div>
+            <Input
+              name="name"
+              placeholder="Type your name"
+              value={user.name ? user.name : ''}
+              onChange={handleSetUser}
+            />
+            <Input
+              name="address"
+              placeholder="Type your address"
+              value={user.address ? user.address : ''}
+              onChange={handleSetUser}
+            />
+            <Button onClick={handleSubmit}>Submit</Button>
+          </div>
+        ) : ''
       }
     </Master>
   );

@@ -1,12 +1,13 @@
 import {
-  compose, withState, withHandlers, setDisplayName, mapProps, lifecycle,
+  compose, setDisplayName, mapProps,
 } from 'recompose';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { getProducts, getTotal } from 'selectors';
+import {
+  getTotal, getQuantity, getCartProducts, getUser,
+} from 'selectors';
 
 import Confirmation from './Confirmation';
-import { getCartProducts, getUser } from '../../../selectors';
+
 
 export const enhance = compose(
   setDisplayName('ConfirmationContainer'),
@@ -14,13 +15,15 @@ export const enhance = compose(
     state => ({
       myProducts: getCartProducts(state),
       user: getUser(state),
+      quantity: getQuantity(state),
       total: getTotal(state),
-    })
+    }),
   ),
   mapProps(props => ({
     ...props,
     myProducts: props.myProducts.toJS(),
     user: props.user,
+    quantity: props.quantity.toJS(),
   })),
 );
 

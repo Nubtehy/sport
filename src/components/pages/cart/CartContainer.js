@@ -1,8 +1,7 @@
 import {
-  compose, withState, withHandlers, setDisplayName, mapProps, setPropTypes,
+  compose, withState, withHandlers, setDisplayName, mapProps,
 } from 'recompose';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 import { plusItem, minusItem, addUser } from 'actions';
@@ -33,8 +32,8 @@ export const enhance = compose(
   ),
   withState('user', 'setUser', ({ user }) => user),
   withHandlers({
-    handlePlusItem: ({ id, dispatchPlusItem }) => id => dispatchPlusItem(id),
-    handleMinusItem: ({ id, dispatchMinusItem }) => id => dispatchMinusItem(id),
+    handlePlusItem: ({ dispatchPlusItem }) => id => dispatchPlusItem(id),
+    handleMinusItem: ({ dispatchMinusItem }) => id => dispatchMinusItem(id),
     handleSetUser: ({ setUser, user }) => (e) => {
       const { name, value } = e.target;
       setUser({ ...user, [name]: value });
@@ -50,6 +49,7 @@ export const enhance = compose(
     total: props.total,
     history: props.history,
     user: props.user,
+    quantity: props.quantity.toJS(),
   })),
 );
 

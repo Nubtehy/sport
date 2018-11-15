@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { HeaderWrapper, HeaderTitle } from './Header.styled';
 
@@ -7,21 +8,32 @@ import { HeaderWrapper, HeaderTitle } from './Header.styled';
 const displayName = 'Header';
 
 const propTypes = {
+  title: PropTypes.string,
+  total: PropTypes.number,
 };
 
 const defaultProps = {
-
+  title: '',
+  total: 0,
 };
 
-function Header({title, total}) {
+function Header({ title, total }) {
   return (
     <HeaderWrapper>
       <HeaderTitle>
-        Sports store {title}
+        Sports store
+        {' '}
+        { title }
 
       </HeaderTitle>
       {
-        (title == 'Products') && <Link to='/cart'> Cart ({total})</Link>
+        (title === 'Products') && (
+        <Link to="/cart">
+          Cart(
+            {total}
+          )
+        </Link>
+        )
       }
     </HeaderWrapper>
   );

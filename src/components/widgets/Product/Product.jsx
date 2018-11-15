@@ -7,13 +7,14 @@ const displayName = 'Product';
 
 const propTypes = {
   name: PropTypes.string.isRequired,
+  handleAddToCart: PropTypes.func.isRequired,
 };
 
 function Product({ name, image, handleAddToCart }) {
   return (
     name && (
       <ProductContainer data-name={name}>
-        <img src={image} />
+        <img src={image} alt="" />
         {name}
         {' - '}
         <Button accent onClick={handleAddToCart}>

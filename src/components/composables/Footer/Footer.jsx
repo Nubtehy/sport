@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FooterWrapper } from './Footer.styled'
+import FooterWrapper from './Footer.styled';
 
 const displayName = 'Footer';
 

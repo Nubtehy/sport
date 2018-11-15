@@ -13,4 +13,3 @@ export const TotalContainer = styled.span`
   font-weight: bold;
   font-size: 25px;
 `;
-

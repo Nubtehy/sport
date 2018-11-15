@@ -24,11 +24,11 @@ const defaultProps = {
 
 function Master({ children, total, title }) {
   return (
-      <CartContainer>
-        <Header title={title} total={total} />
-        <CartMainContainer>{children}</CartMainContainer>
-        <Footer />
-      </CartContainer>
+    <CartContainer>
+      <Header title={title} total={total} />
+      <CartMainContainer>{children}</CartMainContainer>
+      <Footer />
+    </CartContainer>
   );
 }
 

@@ -3,11 +3,11 @@ import {
 } from 'recompose';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { addToCart, removeProduct, fetchProducts } from 'actions';
-import { getProducts, getTotalCount } from 'selectors';
+import { addToCart, fetchProducts } from 'actions';
+import { getProducts, getCartProducts } from 'selectors';
 
 import Category from './Category';
-import { getCartProducts } from '../../../selectors';
+
 
 export const enhance = compose(
   setDisplayName('CategoryContainer'),
