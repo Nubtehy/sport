@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'components/controls';
-import { ProductContainer } from './Product.styled';
+import {
+  ProductContainer, ProductName, ProductPriceBlock, ProductPrice,
+} from './Product.styled';
 
 const displayName = 'Product';
 
@@ -10,16 +12,27 @@ const propTypes = {
   handleAddToCart: PropTypes.func.isRequired,
 };
 
-function Product({ name, image, handleAddToCart }) {
+function Product({
+  name, image, handleAddToCart, price,
+}) {
   return (
     name && (
       <ProductContainer data-name={name}>
         <img src={image} alt="" />
-        {name}
-        {' - '}
-        <Button accent onClick={handleAddToCart}>
-          Add to cart
-        </Button>
+        <ProductName>
+          {name}
+        </ProductName>
+        <ProductPriceBlock>
+          <ProductPrice>
+            {price}
+            {' '}
+          $
+          </ProductPrice>
+          <Button accent onClick={handleAddToCart}>
+            Add to cart
+          </Button>
+        </ProductPriceBlock>
+
       </ProductContainer>
     )
   );

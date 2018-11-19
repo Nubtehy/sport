@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import store from 'store';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import { Cart, Category, Confirmation } from 'components/pages';
+import { whiteLabel } from 'themes';
+import { ThemeProvider } from 'styled-components';
 
 const displayName = 'App';
 
@@ -18,21 +20,24 @@ const defaultProps = {
 export default function App({ title }) {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Switch>
-          {/* these are good */}
-          <Route exact path="/" component={Category} />
-          <Route
-            path="/cart"
-            render={props => <Cart {...props}/>}
-          />
+      <ThemeProvider theme={whiteLabel}>
+        <BrowserRouter>
+          <Switch>
+            {/* these are good */}
+            <Route exact path="/" component={Category} />
+            <Route
+              path="/cart"
+              render={props => <Cart {...props} />}
+            />
 
-          <Route
-            path="/confirmation"
-            component={props => <Confirmation {...props} extra={title} />}
-          />
-        </Switch>
-      </BrowserRouter>
+            <Route
+              path="/confirmation"
+              component={props => <Confirmation {...props} extra={title} />}
+            />
+          </Switch>
+        </BrowserRouter>
+      </ThemeProvider>
+
     </Provider>
 
   );

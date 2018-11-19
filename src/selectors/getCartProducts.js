@@ -9,4 +9,5 @@ const getCartProducts = createSelector(
     return cartItems;
   },
 );
+
 export default getCartProducts;

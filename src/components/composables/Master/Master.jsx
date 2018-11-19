@@ -5,7 +5,7 @@ import Header from 'components/composables/Header';
 
 import Footer from 'components/composables/Footer';
 
-import { CartContainer, CartMainContainer } from './Master.styled';
+import { CartMainContainer, CartContainer, MasterWrapper } from './Master.styled';
 
 const displayName = 'Master';
 
@@ -14,8 +14,8 @@ const propTypes = {
   total: PropTypes.number,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ])
+    PropTypes.node,
+  ]),
 };
 
 const defaultProps = {
@@ -24,11 +24,15 @@ const defaultProps = {
 
 function Master({ children, total, title }) {
   return (
-    <CartContainer>
+    <MasterWrapper>
       <Header title={title} total={total} />
-      <CartMainContainer>{children}</CartMainContainer>
+      <CartMainContainer>
+        <CartContainer>
+          {children}
+        </CartContainer>
+      </CartMainContainer>
       <Footer />
-    </CartContainer>
+    </MasterWrapper>
   );
 }
 

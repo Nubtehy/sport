@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { HeaderWrapper, HeaderTitle } from './Header.styled';
+import { CartContainer } from '../Master/Master.styled';
 
 
 const displayName = 'Header';
@@ -20,21 +21,22 @@ const defaultProps = {
 function Header({ title, total }) {
   return (
     <HeaderWrapper>
-      <HeaderTitle>
-        Sports store
-        {' '}
-        { title }
-
-      </HeaderTitle>
-      {
-        (title === 'Products') && (
-        <Link to="/cart">
-          Cart(
-            {total}
+      <CartContainer>
+        <HeaderTitle>
+          Sports store
+          {' '}
+          { title }
+        </HeaderTitle>
+        {
+          (title === 'Products') && (
+          <Link to="/cart">
+            Cart(
+              {total}
+            )
+          </Link>
           )
-        </Link>
-        )
-      }
+        }
+      </CartContainer>
     </HeaderWrapper>
   );
 }

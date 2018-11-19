@@ -1,7 +1,7 @@
 
 import React from 'react';
 import FooterWrapper from './Footer.styled';
-
+import { CartContainer } from '../Master/Master.styled';
 const displayName = 'Footer';
 
 const propTypes = {
@@ -14,9 +14,9 @@ const defaultProps = {
 function Footer() {
   return (
     <FooterWrapper>
-      <div>
-        This is Footer
-      </div>
+      <CartContainer>
+          This is Footer
+      </CartContainer>
     </FooterWrapper>
   );
 }

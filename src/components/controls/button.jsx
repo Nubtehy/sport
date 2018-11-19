@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyle } from 'components/HOCs';
+import Button from './button.styled';
 
 const displayName = 'Button';
 
@@ -22,9 +23,9 @@ export function ButtonBase({
   name, onClick, style, children,
 }) {
   return (
-    <button data-name={name} type="button" onClick={onClick} style={style}>
+    <Button data-name={name} type="button" onClick={onClick} style={style}>
       {children}
-    </button>
+    </Button>
   );
 }
 
@@ -34,6 +35,12 @@ ButtonBase.defaultProps = defaultProps;
 
 export const styleCreator = (theme, { accent }) => ({
   backgroundColor: accent ? theme.colorAccent : theme.colorDefault,
+  color: '#ffffff',
+  height: '36px',
+  padding: '0 18px',
+  borderRadius: '18px',
+  fontSize: '12px',
+  lineHeight: '34px',
 });
 
 export default withStyle(ButtonBase, styleCreator);
