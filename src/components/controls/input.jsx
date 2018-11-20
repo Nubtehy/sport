@@ -5,24 +5,26 @@ import { withStyle } from 'components/HOCs';
 const displayName = 'Input';
 
 const propTypes = {
-  onClick: PropTypes.func,
+  onChange: PropTypes.func,
   style: PropTypes.objectOf(PropTypes.string),
-  children: PropTypes.string,
   name: PropTypes.string,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
 };
 
 const defaultProps = {
-  onClick: undefined,
+  onChange: () => '',
   style: {},
-  children: '',
+  placeholder: '',
   name: '',
+  value: '',
 };
 
 export function InputBase({
-  name, onChange, style, placeholder, value
+  name, onChange, style, placeholder, value,
 }) {
   return (
-    <input name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder}/>
+    <input name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder} />
   );
 }
 

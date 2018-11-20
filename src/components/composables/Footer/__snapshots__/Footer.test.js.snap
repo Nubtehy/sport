@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Footer component when the component is rendered should match the snapshot 1`] = `
+<Footerstyled__FooterWrapper>
+  <Masterstyled__CartContainer>
+    @onSEO
+  </Masterstyled__CartContainer>
+</Footerstyled__FooterWrapper>
+`;

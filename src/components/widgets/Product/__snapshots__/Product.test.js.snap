@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given the CartItem component when the component is rendered should render the component with provided props 1`] = `
+<Productstyled__ProductContainer
+  data-name="Product 1"
+>
+  <img
+    alt=""
+    src=""
+  />
+  <Productstyled__ProductName>
+    Product 1
+  </Productstyled__ProductName>
+  <Productstyled__ProductPriceBlock>
+    <Productstyled__ProductPrice>
+      212
+       
+      $
+    </Productstyled__ProductPrice>
+    <WithStyle(Button)
+      accent={true}
+      onClick={[MockFunction]}
+    >
+      Add to cart
+    </WithStyle(Button)>
+  </Productstyled__ProductPriceBlock>
+</Productstyled__ProductContainer>
+`;

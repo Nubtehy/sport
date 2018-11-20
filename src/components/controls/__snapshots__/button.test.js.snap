@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given an Input component when the component is rendered should match the snapshot 1`] = `
+<buttonstyled__Button
+  data-name="add-form-button"
+  onClick={[MockFunction]}
+  style={
+    Object {
+      "background": "blue",
+    }
+  }
+  type="button"
+/>
+`;

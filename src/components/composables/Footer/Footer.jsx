@@ -2,6 +2,7 @@
 import React from 'react';
 import FooterWrapper from './Footer.styled';
 import { CartContainer } from '../Master/Master.styled';
+
 const displayName = 'Footer';
 
 const propTypes = {
@@ -15,7 +16,7 @@ function Footer() {
   return (
     <FooterWrapper>
       <CartContainer>
-          This is Footer
+          @onSEO
       </CartContainer>
     </FooterWrapper>
   );

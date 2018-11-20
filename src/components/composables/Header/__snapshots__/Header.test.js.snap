@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Header component when the component is rendered should match the snapshot 1`] = `
+<Headerstyled__HeaderWrapper>
+  <Masterstyled__CartContainer>
+    <Headerstyled__HeaderTitle>
+      Sports store
+       
+    </Headerstyled__HeaderTitle>
+  </Masterstyled__CartContainer>
+</Headerstyled__HeaderWrapper>
+`;
