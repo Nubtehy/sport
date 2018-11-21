@@ -1,4 +1,4 @@
-import Immutable, { Map, fromJS } from 'immutable';
+import { Map } from 'immutable';
 import user, { initialUserState } from './user';
 
 describe('Given the filter reducer', () => {
@@ -20,7 +20,7 @@ describe('Given the filter reducer', () => {
         testAction.payload.name = 'Marselus';
         testAction.payload.address = 'home 1';
       });
-      console.log(testAction);
+
       it('should return a new state with the provided cart', () => {
         expect(newState).toEqual(Map({ name: 'Marselus', address: 'home 1' }));
       });

@@ -1,5 +1,6 @@
 // import products, { initialProductsState } from './products';
-import cart, { initialCartState, initialQuantityState, quantity } from './cart';
+import cart, { initialCartState } from './cart';
+import { initialQuantityState, quantity } from './quantity';
 import products, { initialProductsState } from './products';
 import userInfo, { initialUserInfoState } from './userInfo';
 import user, { initialUserState } from './user';
@@ -14,5 +15,5 @@ export {
   userInfo,
   initialUserInfoState,
   user,
-  initialUserState
+  initialUserState,
 };
