@@ -22,7 +22,7 @@ export const enhance = compose(
   mapProps(props => ({
     ...props,
     myProducts: props.myProducts.toJS(),
-    user: props.user,
+    user: props.user.toJS(),
     quantity: props.quantity.toJS(),
   })),
 );

@@ -1,7 +1,7 @@
 import { List, Map, fromJS } from 'immutable';
 import { handleActions } from 'redux-actions';
 import { FULFILLED } from 'redux-promise-middleware';
-import { addToCart, removeProduct, fetchProducts } from 'actions';
+import { fetchProducts } from 'actions';
 
 let id = -1;
 
