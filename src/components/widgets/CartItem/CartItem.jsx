@@ -26,6 +26,7 @@ function CartItem({
         <CartItemCol><img src={image} alt="" /></CartItemCol>
         <CartItemCol>{name}</CartItemCol>
         <CartItemCol>{price}</CartItemCol>
+
         <CartItemCol>
           {
             controls ? (

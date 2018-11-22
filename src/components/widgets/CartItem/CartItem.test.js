@@ -12,9 +12,23 @@ const testProps = {
   handleMinusItem: jest.fn(),
   controls: true,
 };
+
 describe('Given the CartItem component', () => {
-  describe('when the component is rendered', () => {
-    const component = shallow(<CartItem {...testProps} />);
+  let component;
+
+  beforeEach(() => {
+    component = shallow(<CartItem {...testProps} />);
+  });
+  describe('when the component is rendered with controls', () => {
+    it('should render the component with provided props', () => {
+      expect(component).toMatchSnapshot();
+    });
+  });
+
+  describe('when the component is rendered without controls', () => {
+    beforeAll(() => {
+      testProps.controls = false;
+    });
     it('should render the component with provided props', () => {
       expect(component).toMatchSnapshot();
     });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Given the CartItem component when the component is rendered should render the component with provided props 1`] = `
+exports[`Given the CartItem component when the component is rendered with controls should render the component with provided props 1`] = `
 <CartItemstyled__CartItemRow
   data-name={1}
   key="1"
@@ -33,6 +33,32 @@ exports[`Given the CartItem component when the component is rendered should rend
         +
       </WithStyle(Button)>
     </div>
+  </CartItemstyled__CartItemCol>
+  <CartItemstyled__CartItemCol>
+    22
+  </CartItemstyled__CartItemCol>
+</CartItemstyled__CartItemRow>
+`;
+
+exports[`Given the CartItem component when the component is rendered without controls should render the component with provided props 1`] = `
+<CartItemstyled__CartItemRow
+  data-name={1}
+  key="1"
+>
+  <CartItemstyled__CartItemCol>
+    <img
+      alt=""
+      src=""
+    />
+  </CartItemstyled__CartItemCol>
+  <CartItemstyled__CartItemCol>
+    Product 1
+  </CartItemstyled__CartItemCol>
+  <CartItemstyled__CartItemCol>
+    22
+  </CartItemstyled__CartItemCol>
+  <CartItemstyled__CartItemCol>
+    1
   </CartItemstyled__CartItemCol>
   <CartItemstyled__CartItemCol>
     22

@@ -1,4 +1,3 @@
-// import products, { initialProductsState } from './products';
 import cart, { initialCartState } from './cart';
 import { initialQuantityState, quantity } from './quantity';
 import products, { initialProductsState } from './products';

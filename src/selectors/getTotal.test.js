@@ -15,7 +15,7 @@ describe('Giveng getCartProducts selector', () => {
     });
 
 
-    describe('and the is cart products in the store', () => {
+    describe('and the cart products in the store', () => {
       it('should return total price of products from the store', () => {
         expect(result).toBe(64);
       });

@@ -1,19 +1,19 @@
 import { Map, fromJS } from 'immutable';
-import getUser from './getUser';
+import getUserInfo from './getUserInfo';
 
 describe('Giveng getCartProducts selector', () => {
   const currentStoreState = fromJS({
-    user: { name: '', address: '' },
+    userInfo: { userId: '111111111' },
   });
   describe('when the getUserInfo selector is called', () => {
     let result;
 
     beforeEach(() => {
-      result = getUser(currentStoreState);
+      result = getUserInfo(currentStoreState);
     });
     describe('and the cart products in the store', () => {
       it('should return userinfo from the store', () => {
-        expect(result).toEqual(Map({ name: '', address: '' }));
+        expect(result).toEqual(Map({ userId: '111111111' }));
       });
     });
   });
