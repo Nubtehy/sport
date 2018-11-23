@@ -26,7 +26,7 @@ export const initialStoreState = Map({
   products: initialProductsState,
   cart: initialCartState,
   quantity: initialQuantityState,
-  user: initialUserState
+  user: initialUserState,
 });
 
 const store = createStore(
@@ -35,7 +35,7 @@ const store = createStore(
     products,
     cart,
     quantity,
-    user
+    user,
   }),
   initialStoreState,
   enhancer,

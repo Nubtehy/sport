@@ -4,57 +4,77 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { createSink } from 'recompose';
 import thunkMiddleware from 'redux-thunk';
-import { MemoryRouter } from 'react-router-dom';
 import { Map } from 'immutable';
+import { Route, Link, MemoryRouter } from 'react-router-dom';
 
-import { initialCartState } from './cart';
-import { initialQuantityState, quantity } from './quantity';
-import { initialProductsState } from './products';
-import { initialUserInfoState } from './userInfo';
-import { initialUserState } from './user';
+import {
+  getCartProducts,
+  getTotal,
+  getQuantity,
+  getUser,
+} from 'selectors';
+
+import {
+  initialQuantityState,
+  initialProductsState,
+  initialUserInfoState,
+  initialCartState,
+  initialUserState,
+} from 'reducers';
 import { enhance, handlers } from './CartContainer';
 
-import { getCartProducts, getTotal, getQuantity, getUser } from 'selectors';
 
-
-const testStore = configureStore([ thunkMiddleware ])(
-	Map({
-		paymentLobby: initialCartState,
-		paymentLobbyConfig: Map({
-			memberId: '111',
-			sessionTokenId: '222'
-		})
-	})
+const testStore = configureStore([thunkMiddleware])(
+  Map({
+    userInfo: initialUserInfoState,
+    products: initialProductsState,
+    cart: initialCartState,
+    quantity: initialQuantityState,
+    user: initialUserState,
+  }),
 );
 
 const testProps = {
-	addUser: jest.fn(),
-	plusItem: jest.fn(),
-	minusItem: jest.fn(),
+  handleSubmit: jest.fn(),
+  handlePlusItem: jest.fn(),
+  handleMinusItem: jest.fn(),
+  handleSetUser: jest.fn(),
 };
 
 describe('Given a DepositPageContainer enhancer', () => {
-	describe('when the enhancer is rendered', () => {
-		let providedProps;
+  describe('when the handlePlusItem is called', () => {
+    const id = 1;
 
-		beforeEach(() => {
-			const DummyContainer = enhance(createSink(props => (providedProps = props)));
+    beforeEach(() => {
+      handlers.handlePlusItem;
+    });
 
-			mount(
-				<MemoryRouter>
-					<Provider store={ testStore }>
-						<DummyContainer />
-					</Provider>
-				</MemoryRouter>
-			);
-		});
+    describe('and the action is "PLUS_ITEM"', () => {
+      it('should call the plusItem with provided id', () => {
+        expect(testProps.handlePlusItem).toHaveBeenCalledWith(id);
+      });
+    });
+  });
 
-		it('should provide the required props', () => {
-			expect(providedProps.addUser).toBeInstanceOf(Function);
-			expect(providedProps.activeActionStages).toEqual([ actionStages.pageLoad, actionStages.paymentAccountSelect ]);
-			expect(providedProps.plusItem).toBeInstanceOf(Function);
-			expect(providedProps.minusItem).toBeInstanceOf(Function);
-		});
+  describe('when the enhancer is rendered', () => {
+    let providedProps;
 
-	});
+    beforeEach(() => {
+      const DummyContainer = enhance(createSink(props => (providedProps = props)));
+
+      mount(
+        <MemoryRouter>
+          <Provider store={testStore}>
+            <DummyContainer {...testProps} />
+          </Provider>
+        </MemoryRouter>,
+      );
+    });
+
+    it('should provide the required props', () => {
+      expect(providedProps.addUser).toBeInstanceOf(Function);
+      expect(providedProps.handlePlusItem).toBeInstanceOf(Function);
+      expect(providedProps.minusItem).toBeInstanceOf(Function);
+    });
+  });
 });

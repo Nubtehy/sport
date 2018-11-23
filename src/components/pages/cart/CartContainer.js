@@ -11,9 +11,9 @@ import Cart from './Cart';
 import getQuantity from '../../../selectors/getQuantity';
 
 export const handlers = {
-  handlePlusItem: ({ dispatchPlusItem }) => id => dispatchPlusItem(id),
-  handleMinusItem: ({ dispatchMinusItem }) => id => dispatchMinusItem(id),
-  handleSetUser: ({ setUser, user }) => (e) => {
+  handlerPlusItem: ({ dispatchPlusItem }) => id => dispatchPlusItem(id),
+  handlerMinusItem: ({ dispatchMinusItem }) => id => dispatchMinusItem(id),
+  handlerSetUser: ({ setUser, user }) => (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   },
@@ -33,15 +33,11 @@ export const enhance = compose(
       quantity: getQuantity(state),
       user: getUser(state),
     }),
-    dispatch => bindActionCreators(
-      {
-        dispatchAddUser: addUser,
-        dispatchPlusItem: plusItem,
-        dispatchMinusItem: minusItem,
-
-      },
-      dispatch,
-    ),
+    dispatch => ({
+      dispatchAddUser: bindActionCreators(addUser, dispatch),
+      dispatchPlusItem: bindActionCreators(addUser, plusItem),
+      dispatchMinusItem: bindActionCreators(addUser, minusItem),
+    }),
   ),
   withState('user', 'setUser', ({ user }) => user),
   withHandlers(handlers),
