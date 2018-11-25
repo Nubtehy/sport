@@ -4,14 +4,11 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 import { createSink } from 'recompose';
 import thunkMiddleware from 'redux-thunk';
-import { Map } from 'immutable';
-import { Route, Link, MemoryRouter } from 'react-router-dom';
+import { Map, fromJS, List } from 'immutable';
+import { MemoryRouter } from 'react-router-dom';
 
 import {
-  getCartProducts,
-  getTotal,
-  getQuantity,
-  getUser,
+  getCartProducts, getTotal, getQuantity, getUser,
 } from 'selectors';
 
 import {
@@ -23,21 +20,23 @@ import {
 } from 'reducers';
 import { enhance, handlers } from './CartContainer';
 
-
 const testStore = configureStore([thunkMiddleware])(
   Map({
     userInfo: initialUserInfoState,
-    products: initialProductsState,
-    cart: initialCartState,
-    quantity: initialQuantityState,
-    user: initialUserState,
+    products: List([Map({ id: 1, name: 'Ball', image: 'image' })]),
+    cart: fromJS([1]),
+    quantity: Map({ 1: 1 }),
+    user: {
+      name: "test",
+      address: "test",
+    },
   }),
 );
 
 const testProps = {
-  handleSubmit: jest.fn(),
-  handlePlusItem: jest.fn(),
-  handleMinusItem: jest.fn(),
+  dispatchAddUser: jest.fn(),
+  dispatchPlusItem: jest.fn(),
+  dispatchMinusItem: jest.fn(),
   handleSetUser: jest.fn(),
 };
 
@@ -46,16 +45,29 @@ describe('Given a DepositPageContainer enhancer', () => {
     const id = 1;
 
     beforeEach(() => {
-      handlers.handlePlusItem;
+      handlers.handlePlusItem(testProps)(id);
     });
 
     describe('and the action is "PLUS_ITEM"', () => {
       it('should call the plusItem with provided id', () => {
-        expect(testProps.handlePlusItem).toHaveBeenCalledWith(id);
+        expect(testProps.dispatchPlusItem).toHaveBeenCalledWith(id);
       });
     });
   });
 
+  describe('when the handleMinusItem is called', () => {
+    const id = 1;
+
+    beforeEach(() => {
+      handlers.handleMinusItem(testProps)(id);
+    });
+
+    describe('and the action is "MINUS_ITEM"', () => {
+      it('should call the minusItem with provided id', () => {
+        expect(testProps.dispatchMinusItem).toHaveBeenCalledWith(id);
+      });
+    });
+  });
   describe('when the enhancer is rendered', () => {
     let providedProps;
 
@@ -72,9 +84,14 @@ describe('Given a DepositPageContainer enhancer', () => {
     });
 
     it('should provide the required props', () => {
-      expect(providedProps.addUser).toBeInstanceOf(Function);
-      expect(providedProps.handlePlusItem).toBeInstanceOf(Function);
-      expect(providedProps.minusItem).toBeInstanceOf(Function);
+      expect(providedProps.handleSetUser).toBeInstanceOf(Function);
+      expect(providedProps.dispatchPlusItem).toBeInstanceOf(Function);
+      expect(providedProps.dispatchMinusItem).toBeInstanceOf(Function);
+      expect(providedProps.dispatchAddUser).toBeInstanceOf(Function);
+      expect(providedProps.myProducts).toEqual(getCartProducts(testStore.getState()).toJS());
+      expect(providedProps.total).toEqual(getTotal(testStore.getState()));
+      expect(providedProps.quantity).toEqual(getQuantity(testStore.getState()).toJS());
+      expect(providedProps.user).toEqual(getUser(testStore.getState()));
     });
   });
 });
