@@ -29,7 +29,7 @@ function Header({ title, total }) {
         </HeaderTitle>
         {
           (title === 'Products') && (
-          <Link to="/cart">
+          <Link to="/cart" data-name="header-cart">
             Cart(
               {total}
             )

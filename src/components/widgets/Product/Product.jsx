@@ -28,7 +28,7 @@ function Product({
             {' '}
           $
           </ProductPrice>
-          <Button accent onClick={handleAddToCart}>
+          <Button accent onClick={handleAddToCart} name="add-to-cart">
             Add to cart
           </Button>
         </ProductPriceBlock>
