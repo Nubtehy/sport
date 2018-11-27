@@ -19,6 +19,7 @@ exports[`Given the CartItem component when the component is rendered should rend
     </Productstyled__ProductPrice>
     <WithStyle(Button)
       accent={true}
+      name="add-to-cart"
       onClick={[MockFunction]}
     >
       Add to cart

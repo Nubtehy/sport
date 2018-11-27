@@ -10,7 +10,9 @@ export const CartItemCol = styled.td`
   border-bottom: 1px solid #cccccc;
 `;
 
-export const QuantityContainer = styled.span`
+export const QuantityContainer = styled.span.attrs({
+  'data-qa': props => props.dataqa,
+})`
   font-size: 18px;
   font-weight: bold;
 `;

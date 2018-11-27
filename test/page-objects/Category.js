@@ -17,7 +17,7 @@ class Category {
     return browser.element('[data-name="header-cart"]');
   }
 
-  static findPCartUrk(name) {
+  static findCartUrl(name) {
     const links = $$('header a');
 
     return links;

@@ -1,11 +1,10 @@
 
 import Category from 'page-objects/Category';
+import Cart from 'page-objects/Cart';
+
+Category.open();
 
 describe('Given the Category page is opened', () => {
-  beforeEach(() => {
-    Category.open();
-  });
-
   describe('when add to cart button is clicked', () => {
     beforeEach(() => {
       Category.findbuttonsAddtoCart.forEach((link) => {
@@ -17,7 +16,7 @@ describe('Given the Category page is opened', () => {
       expect(Category.findPCart().getText()).toMatch('Cart(4)');
     });
     afterAll(() => {
-      Category.findPCartUrk.click()
+      Category.findCartUrl.click();
     });
   });
 });

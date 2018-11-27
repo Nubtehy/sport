@@ -21,7 +21,7 @@ function CartItem({
 }) {
   return (
     id && (
-      <CartItemRow data-name={id} key={id}>
+      <CartItemRow data-name={name} key={id}>
 
         <CartItemCol><img src={image} alt="" /></CartItemCol>
         <CartItemCol>{name}</CartItemCol>
@@ -31,9 +31,9 @@ function CartItem({
           {
             controls ? (
               <div>
-                <Button onClick={handleMinusItem}>-</Button>
-                <QuantityContainer>{quantity}</QuantityContainer>
-                <Button onClick={handlePlusItem}>+</Button>
+                <Button onClick={handleMinusItem} name="minus">-</Button>
+                <QuantityContainer dataqa={name}>{quantity}</QuantityContainer>
+                <Button onClick={handlePlusItem} name="plus">+</Button>
               </div>
             ) : quantity
           }
