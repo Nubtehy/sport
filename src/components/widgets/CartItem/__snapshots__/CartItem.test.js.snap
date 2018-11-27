@@ -2,7 +2,7 @@
 
 exports[`Given the CartItem component when the component is rendered with controls should render the component with provided props 1`] = `
 <CartItemstyled__CartItemRow
-  data-name={1}
+  data-name="Product 1"
   key="1"
 >
   <CartItemstyled__CartItemCol>
@@ -25,7 +25,9 @@ exports[`Given the CartItem component when the component is rendered with contro
       >
         -
       </WithStyle(Button)>
-      <CartItemstyled__QuantityContainer>
+      <CartItemstyled__QuantityContainer
+        dataqa="Product 1"
+      >
         1
       </CartItemstyled__QuantityContainer>
       <WithStyle(Button)
@@ -44,7 +46,7 @@ exports[`Given the CartItem component when the component is rendered with contro
 
 exports[`Given the CartItem component when the component is rendered without controls should render the component with provided props 1`] = `
 <CartItemstyled__CartItemRow
-  data-name={1}
+  data-name="Product 1"
   key="1"
 >
   <CartItemstyled__CartItemCol>
