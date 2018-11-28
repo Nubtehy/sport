@@ -6,7 +6,7 @@ class Cart {
   }
 
   static findCartProductQuantity(name) {
-    return browser.element(`button[data-qa="${name}"]`);
+    return browser.element(`tr[data-name="${name}"]`);
   }
 }
 

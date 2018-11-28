@@ -15,8 +15,5 @@ describe('Given the Category page is opened', () => {
       browser.pause(2000);
       expect(Category.findPCart().getText()).toMatch('Cart(4)');
     });
-    afterAll(() => {
-      Category.findCartUrl.click();
-    });
   });
 });

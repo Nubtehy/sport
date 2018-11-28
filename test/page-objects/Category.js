@@ -16,12 +16,6 @@ class Category {
   static findPCart(name) {
     return browser.element('[data-name="header-cart"]');
   }
-
-  static findCartUrl(name) {
-    const links = $$('header a');
-
-    return links;
-  }
 }
 
 export default Category;
