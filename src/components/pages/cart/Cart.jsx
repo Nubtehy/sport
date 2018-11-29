@@ -73,18 +73,18 @@ function Cart({
         total ? (
           <div>
             <Input
-              name="name"
+              name="user-name"
               placeholder="Type your name"
               value={user.name ? user.name : ''}
               onChange={handleSetUser}
             />
             <Input
-              name="address"
+              name="user-address"
               placeholder="Type your address"
               value={user.address ? user.address : ''}
               onChange={handleSetUser}
             />
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button name="confirm" onClick={handleSubmit}>Submit</Button>
           </div>
         ) : ''
       }

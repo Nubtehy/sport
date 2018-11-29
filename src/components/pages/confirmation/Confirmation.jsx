@@ -51,12 +51,12 @@ function Confiramtion({
         'Cart is empty'
       )}
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
-      <div>
+      <div data-name="user-info-name">
         Name:
         {' '}
         {user.name}
       </div>
-      <div>
+      <div data-name="user-info-address">
         Address:
         {' '}
         {user.address}

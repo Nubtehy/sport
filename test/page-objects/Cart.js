@@ -1,7 +1,6 @@
 class Cart {
   static get findbuttonsPlus() {
-    const links = $$('button[name="plus"]');
-
+    const links = $$('button[data-name="plus"]');
     return links;
   }
 

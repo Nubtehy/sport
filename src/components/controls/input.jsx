@@ -24,7 +24,7 @@ export function InputBase({
   name, onChange, style, placeholder, value,
 }) {
   return (
-    <input name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder} />
+    <input name={name} data-name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder} />
   );
 }
 
