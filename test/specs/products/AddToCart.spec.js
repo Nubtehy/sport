@@ -2,8 +2,6 @@
 import Category from 'page-objects/Category';
 import Cart from 'page-objects/Cart';
 
-
-
 describe('Given the Category page is opened', () => {
   beforeEach(() => {
     Category.open();

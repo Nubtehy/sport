@@ -23,7 +23,7 @@ function CartItem({
     id && (
       <CartItemRow data-name={name} key={id}>
 
-        <CartItemCol><img src={image} alt="" /></CartItemCol>
+        <CartItemCol><img src={image} alt="" width="150" /></CartItemCol>
         <CartItemCol>{name}</CartItemCol>
         <CartItemCol>{price}</CartItemCol>
 

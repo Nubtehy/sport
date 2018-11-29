@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyle } from 'components/HOCs';
+import Input from './input.styled';
 
 const displayName = 'Input';
 
@@ -24,7 +25,7 @@ export function InputBase({
   name, onChange, style, placeholder, value,
 }) {
   return (
-    <input name={name} data-name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder} />
+    <Input name={name} data-name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder} />
   );
 }
 

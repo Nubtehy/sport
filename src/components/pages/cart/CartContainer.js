@@ -16,7 +16,6 @@ export const handlers = {
   handleSetUser: ({ setUser, user }) => (e) => {
     const { name, value } = e.target;
 
-    console.log(name, value, 'USER');
     setUser({ ...user, [name]: value });
   },
   handleSubmit: ({ user, dispatchAddUser, history }) => () => {
