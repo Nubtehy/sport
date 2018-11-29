@@ -1,11 +1,11 @@
 class Confirmation {
   static get inputUserName() {
-    const input = $('input[data-name="user-name"]');
+    const input = $('input[data-name="name"]');
     return input;
   }
 
   static get inputUserAddress() {
-    return browser.element('[data-name="user-address"]');
+    return browser.element('[data-name="address"]');
   }
 
   static get buttonConfirmation() {
