@@ -24,7 +24,6 @@ describe('Given the Category page is opened', () => {
       });
       describe('when confirm button is clicked', () => {
         beforeEach(() => {
-          browser.pause(12000);
           Confirmation.buttonConfirmation.click();
         });
         it('should show 4 products om confirmation page and user info', () => {

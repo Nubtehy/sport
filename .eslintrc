@@ -1,6 +1,10 @@
 {
-  "extends": ["airbnb"],
-  "plugins": ["webdriverio"],
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "webdriverio"
+  ],
   "settings": {
     "import/resolver": "webpack"
   },
@@ -8,12 +12,33 @@
     "no-debugger": "error",
     "no-alert": "error",
     "no-console": "error",
-    "max-len": ["error", { "code": 120, "tabWidth": 2 }],
-    "react/display-name": ["error", { "ignoreTranspilerName": true }],
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "tabWidth": 2
+      }
+    ],
+    "react/display-name": [
+      "error",
+      {
+        "ignoreTranspilerName": true
+      }
+    ],
     "react/prefer-stateless-function": "error",
-    "react/jsx-filename-extension": ["error", { "extensions": [".test.js", ".jsx"] }]
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".test.js",
+          ".jsx"
+        ]
+      }
+    ]
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true,
+    "webdriverio/wdio": true
   }
 }

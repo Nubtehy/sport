@@ -13,3 +13,14 @@ export const TotalContainer = styled.span`
   font-weight: bold;
   font-size: 25px;
 `;
+
+export const ControlsWrapper = styled.div`
+  width: 30%;
+  div{
+    margin: 0 0 20px;
+  }
+  input, button{
+    box-sizing:  border-box;
+    width: 100%;
+  }
+`;

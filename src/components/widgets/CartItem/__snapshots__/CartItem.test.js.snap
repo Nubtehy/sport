@@ -9,6 +9,7 @@ exports[`Given the CartItem component when the component is rendered with contro
     <img
       alt=""
       src=""
+      width="150"
     />
   </CartItemstyled__CartItemCol>
   <CartItemstyled__CartItemCol>
@@ -53,6 +54,7 @@ exports[`Given the CartItem component when the component is rendered without con
     <img
       alt=""
       src=""
+      width="150"
     />
   </CartItemstyled__CartItemCol>
   <CartItemstyled__CartItemCol>

@@ -27,24 +27,35 @@ exports[`Given a DepositPage component when the component is rendered should mat
     <tbody />
   </Cartstyled__CartTable>
   TOTAL: 12
-  <div>
-    <WithStyle(Input)
-      name="name"
-      onChange={[MockFunction]}
-      placeholder="Type your name"
-      value=""
-    />
-    <WithStyle(Input)
-      name="address"
-      onChange={[MockFunction]}
-      placeholder="Type your address"
-      value=""
-    />
-    <WithStyle(Button)
-      onClick={[MockFunction]}
-    >
-      Submit
-    </WithStyle(Button)>
-  </div>
+  <Cartstyled__ControlsWrapper>
+    <h3>
+      User info
+    </h3>
+    <div>
+      <WithStyle(Input)
+        name="name"
+        onChange={[MockFunction]}
+        placeholder="Type your name"
+        value=""
+      />
+    </div>
+    <div>
+      <WithStyle(Input)
+        name="address"
+        onChange={[MockFunction]}
+        placeholder="Type your address"
+        value=""
+      />
+    </div>
+    <div>
+      <WithStyle(Button)
+        className="large"
+        name="confirm"
+        onClick={[MockFunction]}
+      >
+        Submit
+      </WithStyle(Button)>
+    </div>
+  </Cartstyled__ControlsWrapper>
 </Master>
 `;

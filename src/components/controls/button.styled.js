@@ -14,9 +14,5 @@ const Button = styled.button.attrs({
   &:focus{
     outline: none;
   }
-  &.large{
-    height: 65px;
-    font-size: 20px;
-  }
 `;
 export default Button;
