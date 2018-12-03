@@ -22,10 +22,13 @@ const defaultProps = {
 };
 
 export function InputBase({
-  name, onChange, style, placeholder, value,
+  input, label, type, meta: { touched, error }, style,
 }) {
   return (
-    <Input name={name} data-name={name} type="text" onChange={onChange} style={style} value={value} placeholder={placeholder} />
+    <div className="input-row">
+      <Input {...input} type={type} placeholder={label} style={style} />
+      {touched && error && <span>{error}</span>}
+    </div>
   );
 }
 

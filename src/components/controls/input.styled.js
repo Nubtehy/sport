@@ -3,11 +3,9 @@ import styled from 'styled-components';
 const Input = styled.input.attrs({
   'data-name': props => props.name,
   name: props => props.name,
-  type: props => props.type,
-  onChange: props => props.onChange,
-  style: props => props.style,
-  value: props => props.value,
   placeholder: props => props.placeholder,
+  onChange: props => props.onChange,
+  onBlur: props => props.onBlur,
 })`
   height: 40px;
   padding: 0 18px 3px;

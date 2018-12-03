@@ -45,6 +45,7 @@
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
+    "redux-form": "^7.4.2",
     "redux-immutable": "^4.0.0",
     "redux-mock-store": "^1.5.3",
     "redux-promise-middleware": "^5.1.1",

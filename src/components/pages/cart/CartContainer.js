@@ -18,9 +18,8 @@ export const handlers = {
 
     setUser({ ...user, [name]: value });
   },
-  handleSubmit: ({ user, dispatchAddUser, history }) => () => {
+  handleSubmit: ({ history }) => () => {
     history.push('/confirmation');
-    return dispatchAddUser({ ...user });
   },
 };
 

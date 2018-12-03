@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Master from 'components/composables';
 import { Link } from 'react-router-dom';
 import { CartItem } from 'components/widgets';
-import { Button, Input } from 'components/controls';
-import { CartTable, ControlsWrapper } from './Cart.styled';
+import { CartTable } from './Cart.styled';
+import CartForm from './cartForm/CartForm';
 
 
 const displayName = 'Category';
@@ -71,28 +71,7 @@ function Cart({
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
       {
         total ? (
-          <ControlsWrapper>
-            <h3>User info</h3>
-            <div>
-              <Input
-                name="name"
-                placeholder="Type your name"
-                value={user.name ? user.name : ''}
-                onChange={handleSetUser}
-              />
-            </div>
-            <div>
-              <Input
-                name="address"
-                placeholder="Type your address"
-                value={user.address ? user.address : ''}
-                onChange={handleSetUser}
-              />
-            </div>
-            <div>
-              <Button className="large" name="confirm" onClick={handleSubmit}>Submit</Button>
-            </div>
-          </ControlsWrapper>
+          <CartForm handleSubmit={handleSubmit} />
         ) : ''
       }
     </Master>

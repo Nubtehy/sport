@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const Button = styled.button.attrs({
   className: props => props.className,
+  disabled: props => props.disabled,
 })`
  background: ${({ theme: { colorAccent } }) => colorAccent}!important;
   &:hover{
