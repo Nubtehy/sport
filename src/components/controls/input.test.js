@@ -7,6 +7,7 @@ const testProps = {
   onClick: jest.fn(),
   style: { background: 'blue' },
   name: 'add-form-input',
+  meta: { toched: true, error: false },
 };
 
 describe('Given an Input component', () => {

@@ -9,7 +9,6 @@ const testProps = {
   handlePlusItem: jest.fn(),
   handleMinusItem: jest.fn(),
   handleSubmit: jest.fn(),
-  handleSetUser: jest.fn(),
   user: {},
   quantity: {},
 };

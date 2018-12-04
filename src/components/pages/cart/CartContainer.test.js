@@ -8,7 +8,7 @@ import { Map, fromJS, List } from 'immutable';
 import { MemoryRouter } from 'react-router-dom';
 
 import {
-  getCartProducts, getTotal, getQuantity, getUser,
+  getCartProducts, getTotal, getQuantity,
 } from 'selectors';
 
 import {
@@ -88,7 +88,6 @@ describe('Given a DepositPageContainer enhancer', () => {
       expect(providedProps.myProducts).toEqual(getCartProducts(testStore.getState()).toJS());
       expect(providedProps.total).toEqual(getTotal(testStore.getState()));
       expect(providedProps.quantity).toEqual(getQuantity(testStore.getState()).toJS());
-      expect(providedProps.user).toEqual(getUser(testStore.getState()));
     });
   });
 });
