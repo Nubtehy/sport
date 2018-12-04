@@ -6,6 +6,7 @@ import { CartItem } from 'components/widgets';
 import { Button } from '../../controls';
 import { CartTable } from '../cart/Cart.styled';
 
+
 const displayName = 'Confiramtion';
 
 const propTypes = {
@@ -51,16 +52,21 @@ function Confiramtion({
         'Cart is empty'
       )}
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
-      <div data-name="user-info-name">
-        Name:
-        {' '}
-        {user.name}
-      </div>
-      <div data-name="user-info-address">
-        Address:
-        {' '}
-        {user.address}
-      </div>
+      {
+        user &&
+        <div>
+          <div data-name="user-info-name">
+            Name:
+            {' '}
+            {` ${user.firstName} ${user.lastName} `}
+          </div>
+          <div data-name="user-info-address">
+            Email:
+            {' '}
+            {user.email}
+          </div>
+        </div>
+      }
       <Button>Confirm</Button>
     </Master>
   );

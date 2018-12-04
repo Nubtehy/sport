@@ -3,8 +3,9 @@ import {
 } from 'recompose';
 import { connect } from 'react-redux';
 import {
-  getTotal, getQuantity, getCartProducts, getUser,
+  getTotal, getQuantity, getCartProducts,
 } from 'selectors';
+import { getFormValues } from 'redux-form/immutable';
 
 import Confirmation from './Confirmation';
 
@@ -14,9 +15,9 @@ export const enhance = compose(
   connect(
     state => ({
       myProducts: getCartProducts(state),
-      user: getUser(state),
       quantity: getQuantity(state),
       total: getTotal(state),
+      user: getFormValues('cartform')(state),
     }),
   ),
   mapProps(props => ({

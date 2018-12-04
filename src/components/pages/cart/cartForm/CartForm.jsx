@@ -5,40 +5,51 @@ import { ControlsWrapper } from '../Cart.styled';
 
 const validate = (values) => {
   const errors = {};
-  if (!values.firstName) {
-    errors.firstName = 'Required';
-  } else if (values.firstName.length > 15) {
-    errors.firstName = 'Must be 15 characters or less';
+  if (!values.get('firstName')) {
+    errors.username = 'Required';
+  } else if (values.get('firstName').length > 15) {
+    errors.username = 'Must be 15 characters or less';
   }
 
-
-  if (!values.lastName) {
-    errors.lastName = 'Required';
-  } else if (values.lastName.length > 15) {
-    errors.lastName = 'Must be 15 characters or less';
+  if (!values.get('lastName')) {
+    errors.username = 'Required';
+  } else if (values.get('lastName').length > 15) {
+    errors.username = 'Must be 15 characters or less';
   }
 
-  if (!values.email) {
+  if (!values.get('email')) {
     errors.email = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.get('email'))
+  ) {
     errors.email = 'Invalid email address';
   }
   return errors;
 };
 
 const warn = (values) => {
-  const warnings = {};
-  if (values.age < 19) {
-    warnings.age = 'Hmm, you seem a bit young...';
+  // IMPORTANT: values is an Immutable.Map here!
+  const errors = {};
+  if (values.get('firstName') && /[^a-zA-Z0-9 ]/i.test(values.get('firstName'))) {
+    errors.username = 'Only alphanumeric characters';
   }
-  return warnings;
+
+  if (values.get('lastName') && /[^a-zA-Z0-9 ]/i.test(values.get('lastName'))) {
+    errors.username = 'Only alphanumeric characters';
+  }
+
+  if (values.get('email') && /.+@aol\.com/.test(values.get('email'))) {
+    errors.email = 'Really? You still use AOL for your email?';
+  }
+
+  return errors;
 };
+
 
 function CartForm(props) {
   const {
     handleSubmit, pristine, reset, submitting,
   } = props;
-
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -87,4 +98,5 @@ export default reduxForm({
   form: 'cartform', // a unique identifier for this form
   validate,
   warn,
+  destroyOnUnmount: false,
 })(CartForm);

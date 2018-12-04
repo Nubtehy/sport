@@ -15,7 +15,7 @@ import {
   initialUserState,
 } from 'reducers';
 
-import { reducer as reduxFormReducer } from 'redux-form';
+import { reducer as reduxFormReducer } from 'redux-form/immutable';
 import thunkMiddleware from 'redux-thunk';
 
 /* eslint-disable no-underscore-dangle */
@@ -29,7 +29,6 @@ export const initialStoreState = Map({
   cart: initialCartState,
   quantity: initialQuantityState,
   user: initialUserState,
-  form: reduxFormReducer,
 });
 
 const store = createStore(
@@ -39,7 +38,7 @@ const store = createStore(
     cart,
     quantity,
     user,
-    form: reduxFormReducer,
+    form: reduxFormReducer, // mounted under "form"
   }),
   initialStoreState,
   enhancer,

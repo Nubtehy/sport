@@ -15,7 +15,6 @@ const propTypes = {
   handlePlusItem: PropTypes.func.isRequired,
   handleMinusItem: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  handleSetUser: PropTypes.func.isRequired,
   user: PropTypes.shape({ name: PropTypes.string, address: PropTypes.string }),
   quantity: PropTypes.objectOf(PropTypes.number),
 
@@ -33,8 +32,6 @@ function Cart({
   handlePlusItem,
   handleMinusItem,
   handleSubmit,
-  handleSetUser,
-  user,
   quantity,
 }) {
   return (

@@ -20,10 +20,10 @@ const defaultProps = {
 };
 
 export function ButtonBase({
-  name, onClick, style, children, disabled,
+  name, onClick, style, children, disabled, type,
 }) {
   return (
-    <Button data-name={name} type="button" disabled={disabled} onClick={onClick} style={style}>
+    <Button data-name={name} type={type} disabled={disabled} onClick={onClick} style={style}>
       {children}
     </Button>
   );

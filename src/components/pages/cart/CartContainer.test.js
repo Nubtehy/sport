@@ -16,7 +16,6 @@ import {
   initialProductsState,
   initialUserInfoState,
   initialCartState,
-  initialUserState,
 } from 'reducers';
 import { enhance, handlers } from './CartContainer';
 
@@ -27,8 +26,8 @@ const testStore = configureStore([thunkMiddleware])(
     cart: fromJS([1]),
     quantity: Map({ 1: 1 }),
     user: {
-      name: "test",
-      address: "test",
+      name: 'test',
+      address: 'test',
     },
   }),
 );
@@ -37,7 +36,6 @@ const testProps = {
   dispatchAddUser: jest.fn(),
   dispatchPlusItem: jest.fn(),
   dispatchMinusItem: jest.fn(),
-  handleSetUser: jest.fn(),
 };
 
 describe('Given a DepositPageContainer enhancer', () => {
@@ -84,7 +82,6 @@ describe('Given a DepositPageContainer enhancer', () => {
     });
 
     it('should provide the required props', () => {
-      expect(providedProps.handleSetUser).toBeInstanceOf(Function);
       expect(providedProps.dispatchPlusItem).toBeInstanceOf(Function);
       expect(providedProps.dispatchMinusItem).toBeInstanceOf(Function);
       expect(providedProps.dispatchAddUser).toBeInstanceOf(Function);
