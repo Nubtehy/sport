@@ -70,7 +70,10 @@ describe('Given a DepositPageContainer enhancer', () => {
     let providedProps;
 
     beforeEach(() => {
-      const DummyContainer = enhance(createSink(props => (providedProps = props)));
+      const DummyContainer = enhance(createSink(((props) => {
+        providedProps = props;
+        return providedProps;
+      })));
 
       mount(
         <MemoryRouter>

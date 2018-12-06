@@ -1,41 +1,18 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form/immutable';
 import { Button, Input } from 'components/controls';
-import { ControlsWrapper } from '../Cart.styled';
+import validate from './validation';
 
-const validate = (values) => {
-  const errors = {};
-  if (!values.get('firstName')) {
-    errors.username = 'Required';
-  } else if (values.get('firstName').length > 15) {
-    errors.username = 'Must be 15 characters or less';
-  }
-
-  if (!values.get('lastName')) {
-    errors.username = 'Required';
-  } else if (values.get('lastName').length > 15) {
-    errors.username = 'Must be 15 characters or less';
-  }
-
-  if (!values.get('email')) {
-    errors.email = 'Required';
-  } else if (
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.get('email'))
-  ) {
-    errors.email = 'Invalid email address';
-  }
-  return errors;
-};
 
 const warn = (values) => {
   // IMPORTANT: values is an Immutable.Map here!
   const errors = {};
   if (values.get('firstName') && /[^a-zA-Z0-9 ]/i.test(values.get('firstName'))) {
-    errors.username = 'Only alphanumeric characters';
+    errors.firstName = 'Only alphanumeric characters';
   }
 
   if (values.get('lastName') && /[^a-zA-Z0-9 ]/i.test(values.get('lastName'))) {
-    errors.username = 'Only alphanumeric characters';
+    errors.lastName = 'Only alphanumeric characters';
   }
 
   if (values.get('email') && /.+@aol\.com/.test(values.get('email'))) {

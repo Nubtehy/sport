@@ -7,7 +7,7 @@ import { Button } from '../../controls';
 import { CartTable } from '../cart/Cart.styled';
 
 
-const displayName = 'Confiramtion';
+const displayName = 'Confirmation';
 
 const propTypes = {
   myProducts: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
@@ -53,7 +53,8 @@ function Confiramtion({
       )}
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
       {
-        user &&
+        user
+        &&
         <div>
           <div data-name="user-info-name">
             Name:

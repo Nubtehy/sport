@@ -8,7 +8,7 @@ const testProps = {
   total: 12,
   handlePlusItem: jest.fn(),
   handleMinusItem: jest.fn(),
-  handleSubmit: jest.fn(),
+  handlerSubmit: jest.fn(),
   user: {},
   quantity: {},
 };

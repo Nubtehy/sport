@@ -13,7 +13,7 @@ import getQuantity from '../../../selectors/getQuantity';
 export const handlers = {
   handlePlusItem: ({ dispatchPlusItem }) => id => dispatchPlusItem(id),
   handleMinusItem: ({ dispatchMinusItem }) => id => dispatchMinusItem(id),
-  handleSubmit: ({ history }) => () => {
+  handlerSubmit: ({ history }) => () => {
     history.push('/confirmation');
   },
 };

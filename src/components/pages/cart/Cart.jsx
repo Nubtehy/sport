@@ -14,7 +14,7 @@ const propTypes = {
   total: PropTypes.number.isRequired,
   handlePlusItem: PropTypes.func.isRequired,
   handleMinusItem: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
+  handlerSubmit: PropTypes.func.isRequired,
   user: PropTypes.shape({ name: PropTypes.string, address: PropTypes.string }),
   quantity: PropTypes.objectOf(PropTypes.number),
 
@@ -31,7 +31,7 @@ function Cart({
   total,
   handlePlusItem,
   handleMinusItem,
-  handleSubmit,
+  handlerSubmit,
   quantity,
 }) {
   return (
@@ -68,7 +68,7 @@ function Cart({
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
       {
         total ? (
-          <CartForm handleSubmit={handleSubmit} />
+          <CartForm onSubmit={handlerSubmit} />
         ) : ''
       }
     </Master>

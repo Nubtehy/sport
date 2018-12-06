@@ -11,8 +11,6 @@ import {
   initialProductsState,
   userInfo,
   initialUserInfoState,
-  user,
-  initialUserState,
 } from 'reducers';
 
 import { reducer as reduxFormReducer } from 'redux-form/immutable';
@@ -28,7 +26,6 @@ export const initialStoreState = Map({
   products: initialProductsState,
   cart: initialCartState,
   quantity: initialQuantityState,
-  user: initialUserState,
 });
 
 const store = createStore(
@@ -37,7 +34,6 @@ const store = createStore(
     products,
     cart,
     quantity,
-    user,
     form: reduxFormReducer, // mounted under "form"
   }),
   initialStoreState,
