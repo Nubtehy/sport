@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a DepositPage component when the component is rendered should match the snapshot 1`] = `
+<Master
+  title="Confirmation"
+>
+  <Cartstyled__CartTable>
+    <thead>
+      <tr>
+        <th>
+          Image
+        </th>
+        <th>
+          Product name
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Quantity
+        </th>
+        <th>
+          total
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </Cartstyled__CartTable>
+  TOTAL: 12
+  <div>
+    <div
+      data-name="user-info-name"
+    >
+      Name:
+       
+       undefined undefined 
+    </div>
+    <div
+      data-name="user-info-address"
+    >
+      Email:
+       
+    </div>
+  </div>
+  <WithStyle(Button)
+    accent={true}
+  >
+    Confirm
+  </WithStyle(Button)>
+</Master>
+`;

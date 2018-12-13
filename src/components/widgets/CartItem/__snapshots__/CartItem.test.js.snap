@@ -21,6 +21,7 @@ exports[`Given the CartItem component when the component is rendered with contro
   <CartItemstyled__CartItemCol>
     <div>
       <WithStyle(Button)
+        accent={true}
         name="minus"
         onClick={[MockFunction]}
       >
@@ -32,6 +33,7 @@ exports[`Given the CartItem component when the component is rendered with contro
         1
       </CartItemstyled__QuantityContainer>
       <WithStyle(Button)
+        accent={true}
         name="plus"
         onClick={[MockFunction]}
       >

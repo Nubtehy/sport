@@ -63,7 +63,7 @@ function CartForm(props) {
         </div>
       </div>
       <div>
-        <Button type="submit" name="confirm" disabled={pristine || submitting}>Submit</Button>
+        <Button accent type="submit" name="confirm" disabled={pristine || submitting}>Submit</Button>
       </div>
     </form>
   );

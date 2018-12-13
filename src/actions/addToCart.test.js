@@ -16,8 +16,6 @@ describe('Given the addToCart action', () => {
 
     describe('and the thunk is called', () => {
       let dispatchMock;
-      let getStateMock;
-      let action;
 
       beforeEach(() => {
         dispatchMock = jest.fn(_ => _);

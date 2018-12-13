@@ -12,10 +12,7 @@ import {
 } from 'selectors';
 
 import {
-  initialQuantityState,
-  initialProductsState,
   initialUserInfoState,
-  initialCartState,
 } from 'reducers';
 import { enhance, handlers } from './CartContainer';
 
@@ -62,6 +59,7 @@ describe('Given a DepositPageContainer enhancer', () => {
 
     describe('and the action is "MINUS_ITEM"', () => {
       it('should call the minusItem with provided id', () => {
+        expect(testProps.dispatchMinusItem).toHaveBeenCalledWith(id);
         expect(testProps.dispatchMinusItem).toHaveBeenCalledWith(id);
       });
     });

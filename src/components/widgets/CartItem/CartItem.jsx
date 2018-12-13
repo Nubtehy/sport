@@ -31,9 +31,9 @@ function CartItem({
           {
             controls ? (
               <div>
-                <Button onClick={handleMinusItem} name="minus">-</Button>
+                <Button accent onClick={handleMinusItem} name="minus">-</Button>
                 <QuantityContainer dataqa={name}>{quantity}</QuantityContainer>
-                <Button onClick={handlePlusItem} name="plus">+</Button>
+                <Button accent onClick={handlePlusItem} name="plus">+</Button>
               </div>
             ) : quantity
           }

@@ -8,6 +8,14 @@ import { getProducts, getCartProducts } from 'selectors';
 
 import Category from './Category';
 
+export const handlers = {
+  handleFetchProducts: ({ dispatchFetchProducts }) => () => {
+    dispatchFetchProducts();
+  },
+  handleAddToCart: ({ dispatchAddToCart }) => (id) => {
+    dispatchAddToCart(id);
+  },
+};
 
 export const enhance = compose(
   setDisplayName('CategoryContainer'),
@@ -25,14 +33,7 @@ export const enhance = compose(
     ),
   ),
   withState('name', 'setName', ''),
-  withHandlers({
-    handleFetchProducts: ({ dispatchFetchProducts }) => () => {
-      dispatchFetchProducts();
-    },
-    handleAddToCart: ({ dispatchAddToCart }) => (id) => {
-      dispatchAddToCart(id);
-    },
-  }),
+  withHandlers(handlers),
   lifecycle({
     componentDidMount() {
       this.props.handleFetchProducts();

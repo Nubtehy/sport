@@ -54,8 +54,7 @@ function Confiramtion({
       {total ? `TOTAL: ${total}` : <Link to="/">Back to catalog</Link>}
       {
         user
-        &&
-        <div>
+        &&        <div>
           <div data-name="user-info-name">
             Name:
             {' '}
@@ -68,7 +67,7 @@ function Confiramtion({
           </div>
         </div>
       }
-      <Button>Confirm</Button>
+      <Button accent>Confirm</Button>
     </Master>
   );
 }
